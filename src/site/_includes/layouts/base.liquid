@@ -57,6 +57,7 @@
   {% block scripts %}
   <script src="{{ '/assets/main.js' | absoluteUrl | cacheBust }}"  data-taxi-reload></script>
   {% endblock %}
+  {{ site.codeinjection_foot  }}
 </body>
 </html>
 
