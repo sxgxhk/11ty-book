@@ -169,6 +169,13 @@ body[dir="rtl"] .book-menu {
 
 .book-post {
   margin-bottom: $padding-16 * 3;
+
+  // .book-desc {
+  //   overflow: hidden;
+  //   display: -webkit-box;
+  //   -webkit-box-orient: vertical;
+  //   -webkit-line-clamp: 4;
+  // }
 }
 
 .book-header {
@@ -248,7 +255,7 @@ body[dir="rtl"] .book-menu {
 }
 
 .book-footer {
-  padding-top: $padding-16;
+  padding: $padding-16 0;
   font-size: $font-size-14;
 
   img {

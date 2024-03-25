@@ -1,3 +1,40 @@
 /* You can add custom styles here. */
 
-@import "plugins/numbered";
+// @import "plugins/numbered";
+
+.kg-callout-card {
+    display: flex;
+
+    .kg-callout-emoji {
+        min-width: 2rem;
+    }
+}
+
+.book-copy {
+    a {
+        display: inline-block;
+    }
+}
+
+.aspect-ratio {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56%; /* 高度应该是宽度的56% */
+
+    iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+    }
+}
+
+.atk-content {
+    border-radius: $border-radius;
+    border-width: 1px;
+    padding: 0.75rem 0.75rem;
+    background-color: var(--gray-100);
+    display: inline-block;
+}

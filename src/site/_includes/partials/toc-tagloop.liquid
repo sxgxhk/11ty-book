@@ -1,0 +1,19 @@
+<nav>
+  <ul>
+    <li class="book-section-flat">
+      <strong>Tags</strong>
+      <ul>
+        {% for item in collections.tags %}
+            {% if item.count.posts >= 3 and item.visibility == "public" %}
+                <li class="flex justify-between">
+                    <a href="{{ item.slug | articleCategoryUrl }}">{{ item.name }}</a>
+                    <span>{{ item.count.posts }}</span>
+                  </li>
+            {% endif %}
+
+        {% endfor %}
+
+      </ul>
+    </li>
+  </ul>
+</nav>

@@ -50,6 +50,17 @@
   text-align: right;
 }
 
+.float-right{
+  float: right;
+  margin-left: auto;
+}
+
+.float-left{
+  float: left;
+  margin-right: auto;
+}
+
+
 .hidden {
   display: none;
 }

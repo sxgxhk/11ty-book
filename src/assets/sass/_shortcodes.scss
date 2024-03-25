@@ -93,7 +93,7 @@
   }
 
   // {{< hint >}}
-  .book-hint {
+  .book-hint,.kg-callout-card  {
     @each $name, $color in $hint-colors {
       &.#{$name} {
         border-color: $color;

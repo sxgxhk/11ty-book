@@ -1,0 +1,31 @@
+---
+pagination:
+  data: collections.posts
+  size: 1
+  alias: post
+permalink: /{{ post.slug }}/
+---
+
+{% layout "layouts/base" %}
+
+{% block content %}
+  <article class="markdown book-article">
+    <h1>
+      <a href="{{ post.slug | articleUrl }}">{{ post.title }}</a>
+    </h1>
+    {% render  "partials/post-meta",img:true,post:post %}
+    {{ post.html  }}
+  </article>
+{% endblock %}
+
+
+{% block footer %}
+{% render 'partials/footer',post:post %}
+{% endblock %}
+
+{% block comments %}
+{% render 'partials/comment' %}
+{% endblock %}
+
+
+{% block toc %}TOC{% endblock %}

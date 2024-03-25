@@ -3,19 +3,19 @@
 /* ***** ----------------------------------------------- ***** */
 
 // Import transforms
-// const parseContent = require("./eleventy/transforms/parseContent.js");
+const parseContent = require("./eleventy/transforms/parseContent.js");
 // const minifyHtml = require("./eleventy/transforms/minifyHtml.js");
 // const addHeaderCredit = require("./eleventy/transforms/addHeaderCredit.js");
 
 // // Import filters
-// const absoluteUrl = require("./eleventy/filters/absoluteUrl.js");
-// const cacheBust = require("./eleventy/filters/cacheBust.js");
-// const htmlDate = require("./eleventy/filters/htmlDate.js");
+const absoluteUrl = require("./eleventy/filters/absoluteUrl.js");
+const cacheBust = require("./eleventy/filters/cacheBust.js");
+const htmlDate = require("./eleventy/filters/htmlDate.js");
 // const readableDate = require("./eleventy/filters/readableDate.js");
 // const rssLastUpdatedDate = require("./eleventy/filters/rssLastUpdatedDate.js");
 // const rssDate = require("./eleventy/filters/rssDate.js");
-// const articleUrl = require("./eleventy/filters/articleUrl.js");
-// const articleCategoryUrl = require("./eleventy/filters/articleCategoryUrl.js");
+const articleUrl = require("./eleventy/filters/articleUrl.js");
+const articleCategoryUrl = require("./eleventy/filters/articleCategoryUrl.js");
 // const highlight = require("./eleventy/filters/highlight.js");
 // const groupbydate = require("./eleventy/filters/groupbydate.js");
 // const usMonth = require("./eleventy/filters/usMonth.js");
@@ -27,8 +27,17 @@
 // const svg = require("./eleventy/shortcodes/svg.js");
 // const currentYear = require("./eleventy/shortcodes/currentYear.js");
 
+const excerpt = require("./eleventy/filters/excerpt.js");
+
 const ghostContentAPI = require("@tryghost/content-api");
-const { ghost, memos, envUrls } = require("./config.js");
+const {
+    ghost,
+    memos,
+    mode,
+    customPage,
+    taxonomy,
+    footer,
+} = require("./config.js");
 
 // Init Ghost API
 const api = new ghostContentAPI({ ...ghost });
@@ -36,27 +45,27 @@ const api = new ghostContentAPI({ ...ghost });
 
 // const axios = require("axios");
 
-const loadData =
-    process.env.NODE_ENV == "development" ? envUrls.devData : envUrls.proData;
+const loadData = mode[process.env.NODE_ENV.trim()].limit;
 
 module.exports = function (config) {
-    config.addWatchTarget("./src/");
-    config.setWatchThrottleWaitTime(100);
-
     //   if (process.env.NODE_ENV.trim() !== "development")
     //     config.addTransform("minifyHtml", minifyHtml);
     //   config.addTransform("addHeaderCredit", addHeaderCredit);
-    //   config.addTransform("parseContent", parseContent);
+    config.addTransform("parseContent", parseContent);
 
-    //   // Filters
-    //   config.addFilter("absoluteUrl", absoluteUrl);
-    //   config.addFilter("cacheBust", cacheBust);
-    //   config.addFilter("htmlDate", htmlDate);
+    config.addGlobalData("taxonomys", taxonomy);
+    config.addGlobalData("footer", footer);
+
+    // Filters
+    config.addFilter("excerpt", excerpt);
+    config.addFilter("absoluteUrl", absoluteUrl);
+    config.addFilter("cacheBust", cacheBust);
+    config.addFilter("htmlDate", htmlDate);
     //   config.addFilter("readableDate", readableDate);
     //   config.addFilter("rssLastUpdatedDate", rssLastUpdatedDate);
     //   config.addFilter("rssDate", rssDate);
-    //   config.addFilter("articleUrl", articleUrl);
-    //   config.addFilter("articleCategoryUrl", articleCategoryUrl);
+    config.addFilter("articleUrl", articleUrl);
+    config.addFilter("articleCategoryUrl", articleCategoryUrl);
     //   config.addFilter("highlight", highlight);
     //   config.addFilter("getReadingTime", (text) => {
     //     const wordsPerMinute = 200;
@@ -98,7 +107,7 @@ module.exports = function (config) {
             });
 
         collection = collection.filter(function (page) {
-            return envUrls.customPage.indexOf(page.slug);
+            return customPage.indexOf(page.slug);
         });
 
         return collection;
@@ -151,6 +160,7 @@ module.exports = function (config) {
             .browse({
                 include: "count.posts",
                 limit: "all",
+                order: "count.posts desc",
             })
             .catch((err) => {
                 console.error(err);

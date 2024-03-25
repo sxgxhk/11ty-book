@@ -1,0 +1,24 @@
+---
+pagination:
+  data: collections.docs
+  size: 1
+  alias: page
+permalink: /{{ page.slug }}/
+---
+
+{% layout "layouts/base" %}
+
+{% block content %}
+  <article class="markdown book-article">
+    <h1>
+      <a href="{{ page.slug | articleUrl }}">{{ page.title }}</a>
+    </h1>
+    {% include  "partials/post-meta" %}
+    {{ page.html }}
+  </article>
+{% endblock %}
+
+
+{% block footer %}
+{% include 'partials/footer' %}
+{% endblock %}

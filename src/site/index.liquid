@@ -1,12 +1,15 @@
 ---
-layout: base
 pagination:
   data: collections.posts
   size: 7
   alias: posts
 ---
+{% layout "layouts/base" %}
 
+{% block header %}{% include 'partials/header' %}{% endblock %}
 
-{% for post in posts %}
-  <h2>{{ post.title }}</h2>
-{% endfor %}
+{% block content %}{% include 'partials/list',img:false %}{% endblock %}
+
+{% block pagination %}{% include 'partials/pagination' %}{% endblock %}
+
+{% block toc %}{% include 'partials/toc' %}{% endblock %}

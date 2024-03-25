@@ -1,0 +1,17 @@
+<ul>
+  {% if taxonomys %}
+    <li  class="book-section-flat">
+  <span>推荐分类</span>
+  <ul>
+  {% for item in taxonomys %}
+  <li>
+    <a href="#" title="{{ item.desc }}">
+      {{ item.name }}
+    </a>
+  </li>
+  {% endfor %}
+  </li>
+  </ul>
+  {% endif %}
+</ul>
+

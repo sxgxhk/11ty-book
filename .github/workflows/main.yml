@@ -1,34 +1,37 @@
-name: Build with Hugo
-
-on: [push, pull_request]
-
+on: 
+  repository_dispatch:
+    types:
+      - update
+  schedule:
+    - cron: '0 2 * * *' 
+    
 jobs:
-  build:
+  build_deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        hugo-version:
-          - 'latest'
-          - '0.79.0'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@master
+
+      - name: Set Node.js 20.x
+        uses: actions/setup-node@master
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          node-version: 20.x        
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+      - name: Run install
+        uses: borales/actions-yarn@v4
         with:
-          hugo-version: ${{ matrix.hugo-version }}
-          extended: true
+          cmd: install # will run `yarn install` command
 
-      - name: Run Hugo
-        working-directory: exampleSite
-        run: hugo --themesDir ../..
+      - name: Build production bundle
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: prod # will run `yarn prod` command
 
-      # - name: Deploy
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: ./public
 
+      - name: Deploy to Netlify
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          build_directory: dist
+        with:
+          args: deploy --prod

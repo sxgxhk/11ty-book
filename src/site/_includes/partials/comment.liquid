@@ -1,0 +1,25 @@
+<link href="https://artalk.1900.live/dist/Artalk.css" rel="stylesheet">
+<script src="https://artalk.1900.live/dist/Artalk.js"></script>
+
+
+
+<div id="comments">
+    <div>
+        <h3 class="u-mt-[50px] u-mb-[20px]">加入评论</h3>
+    </div>
+    <div class="at-comments"></div>
+</div>
+
+
+<script>
+        if(commentinfo.type == "artalk" && document.getElementById('comments') != null){
+        const artalk = window.Artalk.init({
+            el:        commentinfo.el,      // 绑定元素的 Selector
+            server:    commentinfo.server,  // 后端地址
+            site:      commentinfo.name,    // 你的站点名
+        });
+        artalk.on('list-loaded', () => {
+            artalk.setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches ? true:false);
+        })
+    }
+</script>

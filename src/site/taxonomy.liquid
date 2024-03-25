@@ -1,0 +1,20 @@
+---
+pagination:
+  data: collections.taxonomy
+  size: 1
+  alias: post
+permalink: /taxonomy/{{ post.slug }}/
+---
+
+{% layout "layouts/base" %}
+
+{% block content %}
+  <article class="markdown book-post">
+    <h1>
+      <a href="{{ post.slug  }}">{{ post.title }}</a>
+    </h1>
+    {% include  "partials/post-meta" %}
+    {{ post.html }}
+  </article>
+{% endblock %}
+

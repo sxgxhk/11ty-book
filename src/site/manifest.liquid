@@ -1,0 +1,19 @@
+---
+permalink: /manifest.json
+---
+
+{
+  "name": "{{ site.title }}",
+  "short_name": "{{ site.title }}",
+  "start_url": "{{ "" | absoluteUrl }}",
+  "scope": "{{ "" | absoluteUrl }}",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "{{ site.icon }}",
+      "sizes": "512x512"
+    }
+  ]
+}

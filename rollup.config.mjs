@@ -7,10 +7,11 @@ import atImport from "postcss-import";
 import postcssPresetEnv from "postcss-preset-env";
 import { resolve } from "path";
 import livereload from "rollup-plugin-livereload";
+import copy from "rollup-plugin-copy";
 
 export default {
     input: "src/assets/js/main.js",
-    output: { dir: "dist/assets/built/", sourcemap: true, format: "es" },
+    output: { dir: "dist/assets/", sourcemap: true, format: "es" },
     plugins: [
         nodeResolve(),
         commonjs(),
@@ -30,10 +31,17 @@ export default {
             ],
             //minimize: true,
         }),
-        livereload({
-            watch: resolve("."),
-            extraExts: ["hbs"],
-            exclusions: [resolve("node_modules")],
+        // livereload({
+        //     watch: resolve("."),
+        //     extraExts: ["hbs"],
+        //     exclusions: [resolve("node_modules")],
+        // }),
+        copy({
+            targets: [
+                { src: "src/assets/fonts", dest: "dist/assets/" },
+                { src: "src/assets/img", dest: "dist/assets/" },
+                { src: "src/assets/svg", dest: "dist/assets/" },
+            ],
         }),
         //terser(),
     ],

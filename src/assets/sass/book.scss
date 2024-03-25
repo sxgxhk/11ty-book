@@ -1,6 +1,6 @@
 @import "defaults";
 @import "variables";
-@import "themes/light";
+@import "themes/auto";
 
 @import "normalize";
 @import "utils";
@@ -13,3 +13,5 @@
 
 // Custom defined styles
 @import "custom";
+@import "plugins/ghost";
+@import "plugins/dracula.min.css"

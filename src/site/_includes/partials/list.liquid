@@ -1,0 +1,13 @@
+{% for post in posts %}
+  <article class="markdown book-post">
+    <h2>
+      <a href="{{ post.slug | articleUrl }}">{{ post.title }}</a>
+    </h2>
+    {% comment %} {{ partial "docs/post-meta" . }} {% endcomment %}
+    {% include 'partials/post-meta',img:img %}
+    <p>
+      {{ post.excerpt | excerpt: 200 }}
+    </p>
+    {% comment %} <a href="{{ post.slug | articleUrl }}">...</a> {% endcomment %}
+  </article>
+{% endfor %}

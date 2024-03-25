@@ -1,0 +1,15 @@
+<ul class="book-copy">
+  {% if footer %}
+    <li  class="book-section-flat">
+  <span>其他</span>
+  <ul>
+  {% for item in footer %}
+  <li>
+      {{ item.html }}
+  </li>
+  {% endfor %}
+  </li>
+  </ul>
+  {% endif %}
+</ul>
+

@@ -1,0 +1,29 @@
+<div class="flex flex-wrap justify-between">
+
+{% if post.updated_at %}
+  <div>
+    <a class="flex align-center" href="#" title="Last modified by" rel="noopener">
+      <img src="{{ '/assets/svg/calendar.svg' | absoluteUrl | cacheBust }}" class="book-icon" alt="Calendar" />
+      <span>{{ post.updated_at | htmlDate }}</span>
+    </a>
+  </div>
+{% endif %}
+
+{% comment %} 
+{{ if and .File .Site.Params.BookRepo .Site.Params.BookEditPath }}
+  <div>
+    <a class="flex align-center" href="{{ .Site.Params.BookRepo }}/{{ .Site.Params.BookEditPath }}/{{ .Site.Params.contentDir | default "content" }}/{{ replace .File.Path "\\" "/" }}" target="_blank" rel="noopener">
+      <img src="{{ "svg/edit.svg" | relURL }}" class="book-icon" alt="Edit" />
+      <span>{{ i18n "Edit this page" }}</span>
+    </a>
+  </div>
+{{ end }}  {% endcomment %}
+
+</div>
+{% comment %} 
+{{ $script := resources.Get "clipboard.js" | resources.Minify }}
+{{ with $script.Content }}
+  <script>{{ . | safeJS }}</script>
+{{ end }} {% endcomment %}
+
+
