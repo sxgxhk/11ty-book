@@ -1,0 +1,27 @@
+[build]
+  command = "yarn prod"
+  publish = "dist"
+
+
+[[redirects]]
+  from = "/rss"
+  to = "/rss.xml"
+  status = 200
+
+
+[[redirects]]
+  from = "/ghost/"
+  to = "https://cms.1900.live/ghost/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*/edit"
+  to = "https://cms.1900.live/:splat/edit"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/404/"
+  status = 404

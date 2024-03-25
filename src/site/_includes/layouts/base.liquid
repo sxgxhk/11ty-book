@@ -12,7 +12,7 @@
   <main class="container flex">
     <aside class="book-menu">
       <div class="book-menu-content">
-        {% include "partials/menu" %} <!-- Left menu Content --> 
+      {% block menu %}{% include 'partials/menu' %}{% endblock %}
       </div>
     </aside>
 
