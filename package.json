@@ -9,7 +9,7 @@
     "11ty": "set NODE_ENV=dev && npx eleventy --serve",
     "rollup": "set NODE_ENV=dev && npx rollup --config --watch",
     "start": "npx run-p 11ty rollup",
-    "prod": "NODE_ENV=pro && npx eleventy && npx rollup -c"
+    "prod": "export NODE_ENV=pro && npx eleventy && npx rollup -c"
   },
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",
