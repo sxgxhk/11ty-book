@@ -27,6 +27,8 @@ const articleCategoryUrl = require("./eleventy/filters/articleCategoryUrl.js");
 // const svg = require("./eleventy/shortcodes/svg.js");
 // const currentYear = require("./eleventy/shortcodes/currentYear.js");
 
+const toc = require("./eleventy/shortcodes/toc.js");
+
 const excerpt = require("./eleventy/filters/excerpt.js");
 
 const ghostContentAPI = require("@tryghost/content-api");
@@ -81,6 +83,7 @@ module.exports = function (config) {
     //   config.addShortcode("isSamePageOrSection", isSamePageOrSection);
     //   config.addShortcode("svg", svg);
     //   config.addShortcode("currentYear", currentYear);
+      config.addShortcode("tocGen", toc);
 
     // Layout aliases
     config.addLayoutAlias("base", "layouts/base.liquid");

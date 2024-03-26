@@ -28,4 +28,15 @@ permalink: /{{ post.slug }}/
 {% endblock %}
 
 
-{% block toc %}TOC{% endblock %}
+{% block toc %}
+{% render 'partials/toc',post:post %}
+{% endblock %}
+
+
+{% block h-toc %}
+<aside class="hidden clearfix">
+
+{% render 'partials/toc',post:post %}
+
+</aside>
+{% endblock %}

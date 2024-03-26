@@ -22,3 +22,5 @@ permalink: /{{ page.slug }}/
 {% block footer %}
 {% include 'partials/footer' %}
 {% endblock %}
+
+{% block h-toc %}{% render 'partials/toc',post:post %}{% endblock %}

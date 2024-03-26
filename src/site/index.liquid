@@ -12,4 +12,12 @@ pagination:
 
 {% block pagination %}{% include 'partials/pagination' %}{% endblock %}
 
-{% block toc %}{% include 'partials/toc' %}{% endblock %}
+{% block toc %}{% include 'partials/toc-tagloop' %}{% endblock %}
+
+{% block h-toc %}
+<aside class="hidden clearfix">
+
+{% include 'partials/toc-tagloop' %}
+
+</aside>
+{% endblock %}
