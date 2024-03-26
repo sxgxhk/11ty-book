@@ -1,0 +1,13 @@
+---
+permalink: /assets/search-data.json
+---
+[
+  {% for post in collections.posts %}
+  {
+      "id": {{ forloop.index }},
+      "href": "{{ post.slug | articleUrl }}",
+      "title": {{ post.title | json}},{% assign all_categories = post.tags | map: "name"  %}
+      "section": "{{ all_categories | join: "," }}",
+      "content": {{ post.html | strip_html | strip_newlines | escape | json }}
+  }{% if forloop.last != true %},{% endif %}{% endfor %}
+]

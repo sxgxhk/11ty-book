@@ -2,6 +2,7 @@ import '../sass/book.scss';
 
 import Alpine from 'alpinejs'
 import mediumZoom from 'medium-zoom';
+import search from './search';
 
 
 window.Alpine = Alpine
@@ -21,3 +22,6 @@ const images = document.querySelectorAll('.markdown img');
     background: 'rgba(0,0,0,0.75)',
     container: '.medium-zoom-overlay'
 });
+
+
+search()

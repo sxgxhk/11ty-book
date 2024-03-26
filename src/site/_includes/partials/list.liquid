@@ -6,7 +6,7 @@
     {% comment %} {{ partial "docs/post-meta" . }} {% endcomment %}
     {% include 'partials/post-meta',img:img %}
     <p>
-      {{ post.html | excerpt: 200 }}
+      {{ post.excerpt | strip_html | truncate: 150 }}
     </p>
     {% comment %} <a href="{{ post.slug | articleUrl }}">...</a> {% endcomment %}
   </article>

@@ -13,7 +13,6 @@ permalink: /{{ page.slug }}/
     <h1>
       <a href="{{ page.slug | articleUrl }}">{{ page.title }}</a>
     </h1>
-    {% include  "partials/post-meta" %}
     {{ page.html }}
   </article>
 {% endblock %}
@@ -23,4 +22,19 @@ permalink: /{{ page.slug }}/
 {% include 'partials/footer' %}
 {% endblock %}
 
-{% block h-toc %}{% render 'partials/toc',post:post %}{% endblock %}
+
+{% block toc %}
+{% render 'partials/toc',post:page %}
+{% endblock %}
+
+
+{% block h-toc %}
+<aside class="hidden clearfix">
+{% render 'partials/toc',post:page %}
+</aside>
+{% endblock %}
+
+
+
+{% block pagination %}{% endblock %}
+
