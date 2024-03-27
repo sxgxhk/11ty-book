@@ -15,7 +15,7 @@
   {{- template "_internal/opengraph.html" . -}} 
 {% endcomment %}
 
-<title>{% if title %}{{title}} | {% endif %}{{site.title}}</title>
+<title>{% if title %}{{title}} | {% endif %}{{site.title}} - {{site.description}}</title>
 
 <link rel="manifest" href="{{ '/manifest.json' | absoluteUrl  | cacheBust }}">
 
