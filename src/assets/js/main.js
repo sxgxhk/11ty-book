@@ -24,4 +24,11 @@ const images = document.querySelectorAll('.markdown img');
 });
 
 
-search()
+search();
+
+
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register("sw.js", { scope: "/" }
+  );
+}
+

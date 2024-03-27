@@ -8,35 +8,42 @@ permalink: /{{ post.slug }}/
 
 {% layout "layouts/base" %}
 
+{% block head %}{% include 'partials/head',post:page.title %}{% endblock %}
+
+
 {% block content %}
   <article class="markdown book-article">
     <h1>
-      <a href="{{ post.slug | articleUrl }}">{{ post.title }}</a>
+      {{ post.title }}
     </h1>
-    {% render  "partials/post-meta",img:true,post:post %}
+    {% include  "partials/post-meta",img:true,post:post %}
     {{ post.html  }}
   </article>
 {% endblock %}
 
 
 {% block footer %}
-{% render 'partials/footer',post:post %}
+{% include 'partials/footer',post:post %}
 {% endblock %}
 
 {% block comments %}
-{% render 'partials/comment' %}
+{% include 'partials/comment' %}
 {% endblock %}
 
 
+{% assign has_tag = post.tags | where:'name','#post-toc' | first %}
+
+{% if has_tag %}
+
 {% block toc %}
-{% render 'partials/toc',post:post %}
+{% include 'partials/toc',post:post %}
 {% endblock %}
 
 
 {% block h-toc %}
 <aside class="hidden clearfix">
-
-{% render 'partials/toc',post:post %}
-
+{% include 'partials/toc',post:post %}
 </aside>
 {% endblock %}
+
+{% endif %}

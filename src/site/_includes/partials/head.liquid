@@ -15,15 +15,28 @@
   {{- template "_internal/opengraph.html" . -}} 
 {% endcomment %}
 
-<title>{{site.title}}</title>
+<title>{% if title %}{{title}} | {% endif %}{{site.title}}</title>
 
-<link rel="manifest" href="{{ '/manifest.json' | absoluteUrl }}">
-<link rel="icon" href="{{ site.icon }}" >
+<link rel="manifest" href="{{ '/manifest.json' | absoluteUrl  | cacheBust }}">
+
+<link rel="icon" href="{{ '/assets/img/favicon.png' | absoluteUrl  | cacheBust }}" >
 <link rel="canonical" href="{{ '' | absoluteUrl }}">
 
 {{ site.codeinjection_head  }}
 
 <link rel="stylesheet" href="{{ '/assets/main.css' | absoluteUrl | cacheBust }}">
+{% comment %} 
+<script defer src="{{ '/sw.js' | absoluteUrl | cacheBust }}"></script>
+
+<script>
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.register(
+      "{{ '/sw.js' | absoluteUrl | cacheBust }}", 
+      { scope: "{{ "" | absoluteUrl }}" }
+    );
+  }
+</script> {% endcomment %}
+
 
 {% comment %} 
 

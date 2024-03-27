@@ -8,6 +8,9 @@ permalink: /{{ page.slug }}/
 
 {% layout "layouts/base" %}
 
+{% block head %}{% include 'partials/head',title:page.title %}{% endblock %}
+
+
 {% block content %}
   <article class="markdown book-article">
     <h1>
@@ -23,14 +26,16 @@ permalink: /{{ page.slug }}/
 {% endblock %}
 
 
+
+
 {% block toc %}
-{% render 'partials/toc',post:page %}
+{% include 'partials/toc',post:page %}
 {% endblock %}
 
 
 {% block h-toc %}
 <aside class="hidden clearfix">
-{% render 'partials/toc',post:page %}
+{% include 'partials/toc',post:page %}
 </aside>
 {% endblock %}
 
