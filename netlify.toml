@@ -25,9 +25,3 @@
   from = "/*"
   to = "/404/"
   status = 404
-
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Content-Encoding = "gzip"

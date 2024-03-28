@@ -17,21 +17,21 @@ module.exports = (content, outputPath) => {
     global.document = document;
 
     // // Add lazyload to all article images
-    // const articleImages = [
-    //   ...document.querySelectorAll(".u-rich-text img,figure > img,article img"),
-    // ];
-    // if (articleImages.length) {
-    //   articleImages.forEach((image) => {
-    //     // Set image src to data-src
-    //     const imageSrc = image.getAttribute("src");
-    //     image.setAttribute("srcset", imageSrcset(imageSrc));
-    //     image.setAttribute("data-sizes", "auto");
-    //     image.removeAttribute("src");
+    const articleImages = [
+      ...document.querySelectorAll(".markdown img"),
+    ];
+    if (articleImages.length) {
+      articleImages.forEach((image) => {
+        // Set image src to data-src
+        const imageSrc = image.getAttribute("src");
+        image.setAttribute("srcset", imageSrcset(imageSrc));
+        image.setAttribute("data-sizes", "auto");
+        image.removeAttribute("src");
 
-    //     // Add lazyload class for lazysizes plugin
-    //     image.classList.add("lazyload");
-    //   });
-    // }
+        // Add lazyload class for lazysizes plugin
+        image.classList.add("lazyload");
+      });
+    }
 
     // Wrap video player with container to make size responsive and add lazyload
     const articleVideos = [...document.querySelectorAll(".markdown iframe")];
