@@ -1,16 +1,15 @@
 import "../sass/book.scss";
 
-// import Alpine from "alpinejs";
+import Alpine from "alpinejs";
 import mediumZoom from "medium-zoom";
 import search from "./search";
-import Artalk from './ArtalkLite';
-import quicklink from 'quicklink/dist/quicklink.umd'
+import Artalk from "./ArtalkLite";
+import quicklink from "quicklink/dist/quicklink.umd";
 
-// window.Alpine = Alpine;
-
-// Alpine.start();
-
+window.Alpine = Alpine;
+Alpine.start();
 //init kg-gallery-image
+
 var gallery = document.querySelectorAll(".kg-gallery-image img");
 gallery.forEach(function (e) {
     var l = e.closest(".kg-gallery-image"),
@@ -48,4 +47,6 @@ if (
     });
 }
 
-window.addEventListener('load', () => {  quicklink.listen();});
+window.addEventListener("load", () => {
+    quicklink.listen();
+});

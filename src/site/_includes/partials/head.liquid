@@ -25,6 +25,17 @@
 {{ site.codeinjection_head  }}
 
 <link rel="stylesheet" href="{{ '/assets/main.css' | absoluteUrl | cacheBust }}">
+
+<script>
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+}
+</script>
+
+
 {% comment %} 
 <script defer src="{{ '/sw.js' | absoluteUrl | cacheBust }}"></script>
 

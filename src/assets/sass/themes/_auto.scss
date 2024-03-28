@@ -4,6 +4,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    @include theme-dark;
+    @include theme-dark;@include theme-dark;
   }
+}
+
+html.dark{
+  @include theme-dark;
+}
+
+html.light{
+  @include theme-light;
 }
