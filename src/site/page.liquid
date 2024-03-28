@@ -8,6 +8,8 @@ permalink: /{{ page.slug }}/
 
 {% layout "layouts/base" %}
 
+{% block header %}{% include 'partials/header',title:page.title %}{% endblock %}
+
 {% block head %}{% include 'partials/head',title:page.title %}{% endblock %}
 
 
