@@ -4,7 +4,7 @@
 
 // Import transforms
 const parseContent = require("./eleventy/transforms/parseContent.js");
-// const minifyHtml = require("./eleventy/transforms/minifyHtml.js");
+const minifyHtml = require("./eleventy/transforms/minifyHtml.js");
 // const addHeaderCredit = require("./eleventy/transforms/addHeaderCredit.js");
 
 // // Import filters
@@ -29,6 +29,7 @@ const articleCategoryUrl = require("./eleventy/filters/articleCategoryUrl.js");
 
 const toc = require("./eleventy/shortcodes/toc.js");
 
+
 const excerpt = require("./eleventy/filters/excerpt.js");
 
 const ghostContentAPI = require("@tryghost/content-api");
@@ -50,11 +51,8 @@ const api = new ghostContentAPI({ ...ghost });
 const loadData = mode[process.env.NODE_ENV.trim()].limit;
 
 module.exports = function (config) {
-    //   if (process.env.NODE_ENV.trim() !== "development")
-    //     config.addTransform("minifyHtml", minifyHtml);
-    //   config.addTransform("addHeaderCredit", addHeaderCredit);
     config.addTransform("parseContent", parseContent);
-
+    config.addTransform("minifyHtml",minifyHtml)
     config.addGlobalData("taxonomys", taxonomy);
     config.addGlobalData("footer", footer);
 
@@ -83,7 +81,7 @@ module.exports = function (config) {
     //   config.addShortcode("isSamePageOrSection", isSamePageOrSection);
     //   config.addShortcode("svg", svg);
     //   config.addShortcode("currentYear", currentYear);
-      config.addShortcode("tocGen", toc);
+    config.addShortcode("tocGen", toc);
 
     // Layout aliases
     config.addLayoutAlias("base", "layouts/base.liquid");

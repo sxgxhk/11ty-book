@@ -82,7 +82,8 @@ module.exports = (content, outputPath) => {
       
       })
     }
-    return document.documentElement.outerHTML;
+
+    return `<!DOCTYPE html>`+document.documentElement.outerHTML;
   }
 
   return content;
