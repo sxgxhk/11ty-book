@@ -40,6 +40,6 @@ export default {
             ],
         }),
         terser(),
-        del({ targets: 'dist/*' })
+        // del({ targets: 'dist/*' })
     ],
 };
