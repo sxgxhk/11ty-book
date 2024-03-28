@@ -26,7 +26,7 @@ mediumZoom(images, {
 search();
 
 if (navigator.serviceWorker) {
-    navigator.serviceWorker.register("sw.js", { scope: "/" });
+    navigator.serviceWorker.register(location.origin+"/sw.js", { scope: location.origin });
 }
 
 if (
