@@ -7,6 +7,10 @@ import Artalk from "./ArtalkLite";
 import quicklink from "quicklink/dist/quicklink.umd";
 
 window.Alpine = Alpine;
+Alpine.data('theme', () => ({
+    themeName:"",
+    changeTheme:changeTheme
+}))
 Alpine.start();
 //init kg-gallery-image
 
@@ -26,7 +30,9 @@ mediumZoom(images, {
 search();
 
 if (navigator.serviceWorker) {
-    navigator.serviceWorker.register(location.origin+"/sw.js", { scope: location.origin });
+    navigator.serviceWorker.register(location.origin + "/sw.js", {
+        scope: location.origin,
+    });
 }
 
 if (
@@ -50,3 +56,14 @@ if (
 window.addEventListener("load", () => {
     quicklink.listen();
 });
+
+function changeTheme(theme,name) {
+    if(theme == 'auto') {
+        document.documentElement.setAttribute("class","");
+    }else{
+        // 切换主题并存储到localStorage
+        document.documentElement.setAttribute("class", theme);
+    }
+    localStorage.theme = theme;
+    localStorage.setItem('name',name);
+}

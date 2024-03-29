@@ -27,11 +27,10 @@
 <link rel="stylesheet" href="{{ '/assets/main.css' | absoluteUrl | cacheBust }}">
 
 <script>
-  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark')
-  } else {
-    document.documentElement.classList.remove('dark')
-  }
+    const theme = localStorage.getItem('theme');
+    if (theme != 'auto') {
+        document.documentElement.classList.add(theme);
+    }
 </script>
 
 
