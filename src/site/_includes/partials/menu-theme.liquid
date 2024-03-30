@@ -1,29 +1,29 @@
-<ul class="book-languages">
+<ul class="book-languages"   x-data="theme">
   <li>
     <input type="checkbox" id="theme" class="toggle">
     <label for="theme" class="flex justify-between">
       <a  role="button" class="flex align-center">
         <img src="{{ '/assets/svg/theme.svg' | absoluteUrl | cacheBust }}" class="book-icon" alt="change theme">
-        <span  x-data="{ name: localStorage.getItem('name') }"  x-text="name"></span>
+        <span x-text="themeName"></span>
       </a>
     </label>
 
     <ul>
       
       <li>
-        <a x-data="theme" @click="changeTheme('dark','极夜黑')">
+        <a @click="changeTheme('dark','极夜黑');setName();">
           极夜黑
         </a>
       </li>
       
       <li>
-        <a  x-data="theme" @click="changeTheme('light','月牙白')">
+        <a @click="changeTheme('light','月牙白');setName();">
           月牙白
         </a>
       </li>
 
       <li>
-        <a  x-data="theme" @click="changeTheme('auto','随你便')">
+        <a  @click="changeTheme('auto','随你便');setName();">
           随你便
         </a>
       </li>

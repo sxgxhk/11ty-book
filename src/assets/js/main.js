@@ -8,8 +8,11 @@ import quicklink from "quicklink/dist/quicklink.umd";
 
 window.Alpine = Alpine;
 Alpine.data('theme', () => ({
-    themeName:"",
-    changeTheme:changeTheme
+    themeName:localStorage.name,
+    changeTheme:changeTheme,
+    setName: function(){
+        this.themeName = localStorage.name
+    }
 }))
 Alpine.start();
 //init kg-gallery-image
