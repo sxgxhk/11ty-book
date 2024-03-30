@@ -4,7 +4,7 @@
     <label for="theme" class="flex justify-between">
       <a  role="button" class="flex align-center">
         <img src="{{ '/assets/svg/theme.svg' | absoluteUrl | cacheBust }}" class="book-icon" alt="change theme">
-        <span x-text="themeName"></span>
+        <span x-text="themeName">自适应</span>
       </a>
     </label>
 
@@ -23,8 +23,8 @@
       </li>
 
       <li>
-        <a  @click="changeTheme('auto','随你便');setName();">
-          随你便
+        <a  @click="changeTheme('auto','自适应');setName();">
+          自适应
         </a>
       </li>
       

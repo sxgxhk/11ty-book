@@ -14,8 +14,10 @@ Alpine.data('theme', () => ({
         this.themeName = localStorage.name
     }
 }))
+
 Alpine.start();
 //init kg-gallery-image
+
 
 var gallery = document.querySelectorAll(".kg-gallery-image img");
 gallery.forEach(function (e) {
@@ -42,7 +44,7 @@ if (
     commentinfo.type == "artalk" &&
     document.getElementById("comments") != null
 ) {
-    const artalk = Artalk.init({
+    window.artalk = Artalk.init({
         el: commentinfo.el, // 绑定元素的 Selector
         server: commentinfo.server, // 后端地址
         site: commentinfo.name, // 你的站点名
@@ -63,9 +65,12 @@ window.addEventListener("load", () => {
 function changeTheme(theme,name) {
     if(theme == 'auto') {
         document.documentElement.setAttribute("class","");
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        window.artalk.setDarkMode(prefersDarkScheme)
     }else{
         // 切换主题并存储到localStorage
         document.documentElement.setAttribute("class", theme);
+        window.artalk.setDarkMode(theme === "dark" ? true:false)
     }
     localStorage.theme = theme;
     localStorage.setItem('name',name);
