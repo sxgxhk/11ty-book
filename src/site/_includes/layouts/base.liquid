@@ -48,7 +48,9 @@
     <aside class="book-toc">
       <div class="book-toc-content">
         {% block toc %}{% endblock %}
-
+        <div class="book-toc-top">
+          <a href="#">TOP</a>
+        </div>
         {% comment %} {{ template "toc" . }} <!-- Table of Contents --> {% endcomment %}
       </div>
     </aside>

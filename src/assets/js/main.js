@@ -60,11 +60,11 @@ function changeTheme(theme,name) {
     if(theme == 'auto') {
         document.documentElement.setAttribute("class","");
         const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        window.artalk.setDarkMode(prefersDarkScheme)
+        if(window.artalk) window.artalk.setDarkMode(prefersDarkScheme)
     }else{
         // 切换主题并存储到localStorage
         document.documentElement.setAttribute("class", theme);
-        window.artalk.setDarkMode(theme === "dark" ? true:false)
+        if(window.artalk) window.artalk.setDarkMode(theme === "dark" ? true:false)
     }
     localStorage.theme = theme;
     localStorage.name = name;

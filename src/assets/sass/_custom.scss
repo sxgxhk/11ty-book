@@ -38,3 +38,13 @@
     background-color: var(--gray-200);
     display: inline-block;
 }
+
+.book-toc-top{
+    margin-top: auto;
+}
+
+.book-toc-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
