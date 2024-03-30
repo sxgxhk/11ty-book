@@ -27,14 +27,16 @@
 <link rel="stylesheet" href="{{ '/assets/main.css' | absoluteUrl | cacheBust }}">
 
 <script>
-    const theme = localStorage.getItem('theme');
-    if (theme != 'auto') {
+    const theme = localStorage.theme;
+    if (localStorage.theme != 'auto') {
         document.documentElement.classList.add(theme);
+        localStorage.theme = theme;
     }
+      localStorage.name = localStorage.name || '自适应';
+      localStorage.theme = theme || 'auto';
 
-    localStorage.name = localStorage.name || '自适应'
 </script>
-
+  
 
 {% comment %} 
 <script defer src="{{ '/sw.js' | absoluteUrl | cacheBust }}"></script>

@@ -49,13 +49,7 @@ if (
         server: commentinfo.server, // 后端地址
         site: commentinfo.name, // 你的站点名
     });
-    artalk.on("list-loaded", () => {
-        artalk.setDarkMode(
-            window.matchMedia("(prefers-color-scheme: dark)").matches
-                ? true
-                : false
-        );
-    });
+    artalk.on("list-loaded",changeTheme(localStorage.theme,localStorage.name));
 }
 
 window.addEventListener("load", () => {
@@ -73,5 +67,5 @@ function changeTheme(theme,name) {
         window.artalk.setDarkMode(theme === "dark" ? true:false)
     }
     localStorage.theme = theme;
-    localStorage.setItem('name',name);
+    localStorage.name = name;
 }
