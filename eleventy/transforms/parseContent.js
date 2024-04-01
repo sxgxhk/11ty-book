@@ -73,6 +73,7 @@ module.exports = (content, outputPath) => {
     const codes = [
       ...document.querySelectorAll(".markdown pre code"),
     ];
+
     if (codes.length) {
       codes.forEach((code) => {
         if(hljs.getLanguage(code.className.replaceAll('language-','')) == undefined){

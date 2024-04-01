@@ -1657,6 +1657,11 @@
     escape-string-regexp "^2.0.0"
     lodash.deburr "^4.1.0"
 
+"@speed-highlight/core@^1.2.6":
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/@speed-highlight/core/-/core-1.2.6.tgz#24fd25493f946cc3c5ba9ee9dd117014dccd3679"
+  integrity sha512-kzS2W5fLGz2wcmA+4JoMlw3eglj2NqYTdzU/Db1P9phIJ20glYFW4tGpPRfpqP08qEn2H0NV9/7E8kh5/iaTgQ==
+
 "@tryghost/content-api@^1.11.20":
   version "1.11.20"
   resolved "https://registry.yarnpkg.com/@tryghost/content-api/-/content-api-1.11.20.tgz#5b3ccb432e9e2f74a2bd6726aa8af8d1de2d3fbf"
@@ -3179,6 +3184,16 @@ highlight.js@^11.9.0:
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.9.0.tgz#04ab9ee43b52a41a047432c8103e2158a1b8b5b0"
   integrity sha512-fJ7cW7fQGCYAkgv4CPfwFHrfd/cLS4Hau96JuJ+ZTOWhjnhoeN1ub1tFmALm/+lW5z4WCAuAV9bm05AP0mS6Gw==
 
+highlightjs-badge@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/highlightjs-badge/-/highlightjs-badge-0.1.9.tgz#39cec0ff9d55d4ca02ea04ab31e376331f66d9b1"
+  integrity sha512-uWA5OvsV3zTnzlXWv12AymBwWwH7VjzndiX/ts2O4NXnM6ezpbkjMKfB6WtYF84syNltoOZgMrluPvwI4utrUw==
+
+highlightjs-copy@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/highlightjs-copy/-/highlightjs-copy-1.0.5.tgz#44fa17c2d3ed27d87ca8efcb67a937e7f760ce4a"
+  integrity sha512-e7vXcq4HyMqXEw9omt8riYMxEGSanjY2bLQL91Jk0zGnqEhs/pO/6X4tC0PQEVkGBqUdYUyfr06V/VEfQZ7Pmg==
+
 hosted-git-info@^2.1.4:
   version "2.8.9"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
@@ -3775,6 +3790,11 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==
+
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 lower-case@^1.1.1:
   version "1.1.4"

@@ -17,8 +17,8 @@ const rssLastUpdatedDate = require("./eleventy/filters/rssLastUpdatedDate.js");
 const articleUrl = require("./eleventy/filters/articleUrl.js");
 const articleCategoryUrl = require("./eleventy/filters/articleCategoryUrl.js");
 // const highlight = require("./eleventy/filters/highlight.js");
-// const groupbydate = require("./eleventy/filters/groupbydate.js");
-// const usMonth = require("./eleventy/filters/usMonth.js");
+const groupbydate = require("./eleventy/filters/groupbydate.js");
+const usMonth = require("./eleventy/filters/usMonth.js");
 
 // // Import shortcodes
 // // const imageUrl = require("./eleventy/shortcodes/imageUrl.js");
@@ -28,7 +28,6 @@ const articleCategoryUrl = require("./eleventy/filters/articleCategoryUrl.js");
 // const currentYear = require("./eleventy/shortcodes/currentYear.js");
 
 const toc = require("./eleventy/shortcodes/toc.js");
-
 
 const excerpt = require("./eleventy/filters/excerpt.js");
 
@@ -52,9 +51,7 @@ const loadData = mode[process.env.NODE_ENV.trim()].limit;
 
 module.exports = function (config) {
     config.addTransform("parseContent", parseContent);
-    config.addTransform("minifyHtml",minifyHtml)
-    config.addGlobalData("taxonomys", taxonomy);
-    config.addGlobalData("footer", footer);
+    config.addTransform("minifyHtml", minifyHtml);
 
     // Filters
     config.addFilter("excerpt", excerpt);
@@ -72,8 +69,8 @@ module.exports = function (config) {
     //     const numberOfWords = text.split(/\s/g).length;
     //     return Math.ceil(numberOfWords / wordsPerMinute);
     //   });
-    //   config.addFilter("groupbydate", groupbydate);
-    //   config.addFilter("usMonth", usMonth);
+    config.addFilter("groupbydate", groupbydate);
+    config.addFilter("usMonth", usMonth);
 
     //   // Shortcodes
     //   // config.addShortcode("imageUrl", imageUrl);
@@ -84,7 +81,7 @@ module.exports = function (config) {
     config.addShortcode("tocGen", toc);
 
     // Layout aliases
-    config.addLayoutAlias("base", "layouts/base.liquid");
+    // config.addLayoutAlias("base", "layouts/base.liquid");
 
     config.addFilter("getReadingTime", (text) => {
         const wordsPerMinute = 200;
@@ -94,6 +91,19 @@ module.exports = function (config) {
 
     // Don't ignore the same files ignored in the git repo
     config.setUseGitIgnore(false);
+
+
+
+
+    
+
+    
+    config.addGlobalData("taxonomys", taxonomy);
+    config.addGlobalData("footer", footer);
+    config.addGlobalData("memos", memos);
+
+
+
 
     // Get all pages, called 'docs' to prevent
     // conflicting the eleventy page object
@@ -106,9 +116,9 @@ module.exports = function (config) {
             .catch((err) => {
                 console.error(err);
             });
-
+        //过滤掉自定义页面
         collection = collection.filter(function (page) {
-            return customPage.indexOf(page.slug);
+            return !customPage.includes(page.slug);
         });
 
         return collection;
@@ -249,6 +259,37 @@ module.exports = function (config) {
         });
 
         return pagedPosts;
+    });
+
+    config.addCollection("memos", async function (collection) {
+        // fetch(umiUrl, {
+        //     method: 'GET',
+        //     mode: 'cors',
+        //     cache: 'default',
+        //     headers: {
+        //     Authorization: 'Bearer ' + umiData.token,
+        //     'Content-Type': 'application/json'
+        //     }
+        // }).then(res => res.json()).then(resdata => {
+        //     let data = groupBy(resdata, item => item.x).map(g => ({
+        //     name: g.key,
+        //     typeId: g.items.map(item => item.t),
+        //     number: g.items.reduce((sum, item) => sum + item.y, 0)
+        //     }));
+        //     Likes = data.filter(function (item) {
+        //     return item.name == 'Like';
+        //     });
+        //     if (Likes.length !== 0) {
+        //     let likeNum = Likes[0].number;
+        //     num.innerHTML = likeNum;
+        //     btn.dataset.like = likeNum;
+        //     btn.ariaLabel = btn.ariaLabel.replace(' 0 ', ' ' + likeNum + ' ');
+        //     } else {
+        //     num.innerHTML = 0;
+        //     btn.dataset.like = 0;
+        //     }
+        // });
+        return collection;
     });
 
     return {

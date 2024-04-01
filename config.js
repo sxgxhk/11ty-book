@@ -10,7 +10,7 @@ module.exports = {
         },
         cdnUrl: "https://cdn.1900.live",
     },
-    customPage: ["archives"],
+    customPage: ["archives","memos"],
     ghost: {
         url: "https://cms.1900.live",
         key: "54bae25f075f027aba23d6f657",
@@ -18,6 +18,8 @@ module.exports = {
     },
     memos: {
         url: "https://memos.1900.live/api/v1/memo?creatorId=101",
+        limit: 10,
+        offset: 10
     },
     //配置合集信息
     taxonomy: [

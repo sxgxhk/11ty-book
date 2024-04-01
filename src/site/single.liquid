@@ -44,7 +44,7 @@ permalink: /{{ post.slug }}/
 
 {% block h-toc %}
 <aside class="hidden clearfix">
-{% include 'partials/toc',post:post %}
+{% include 'partials/toc',html:post.html %}
 </aside>
 {% endblock %}
 

@@ -5,6 +5,9 @@
 const { DateTime } = require('luxon')
 const { format } = require('timeago.js')
 
-module.exports = (isoDate) => {
-  return DateTime.fromISO(isoDate).toFormat('LLLL dd, yyyy')
+module.exports = (isoDate,format = 'LLLL dd, yyyy') => {
+  if(isoDate == 'dddd' || format == 'dddd'){
+    console.log('11');
+  }
+  return DateTime.fromISO(isoDate).toFormat(format)
 }
