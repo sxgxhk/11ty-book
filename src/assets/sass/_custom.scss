@@ -31,14 +31,6 @@
     }
 }
 
-.atk-content {
-    border-radius: $border-radius;
-    border-width: 1px;
-    padding: 0.75rem 0.75rem;
-    background-color: var(--gray-200);
-    display: inline-block;
-}
-
 .book-toc-top{
     margin-top: auto;
 }
@@ -47,4 +39,41 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+}
+
+
+
+/** memos **/
+
+.atk-content {
+    border-radius: $border-radius;
+    border-width: 1px;
+    padding: 0.75rem 0.75rem;
+    background-color: var(--gray-200);
+    display: inline-block;
+    max-width: 100%;
+
+    :last-child{
+        margin-bottom: 0;
+    }
+    :first-child{
+        margin-top: 0;
+    }
+}
+
+.btn-more{
+    margin: 1.5rem 0;
+}
+
+.video-wrapper {
+	position: relative;
+	display: flex;
+	padding-bottom: 56%;
+	height: 0
+}
+
+.video-wrapper iframe {
+	position: absolute;
+	width: 100%;
+	height: 100%
 }

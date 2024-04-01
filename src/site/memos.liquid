@@ -27,7 +27,12 @@
                 </div> {% endcomment %}
                 <div class="atk-body">
                     <div class="atk-content" >
-                        <p x-text="item.content">我之前用的所有主题都是单栏，这个主题打破了我的习惯</p>
+                        <div x-html="item.content">我之前用的所有主题都是单栏，这个主题打破了我的习惯</div>
+
+                        <template x-for="item in data.tagArr">
+                            
+
+                        </template>
                     </div>
                 </div>
                 {% comment %} <div class="atk-footer">
@@ -41,9 +46,11 @@
             </div>
         </div>
         </template>
-        <a href="javascript:void" class="book-btn" @click="loadmore()">
-        加载更多
-        </a>
+        <div class="btn-more flex flex-wrap justify-center">
+            <a href="javascript:void" class="book-btn" @click="loadmore()">
+            加载更多
+            </a>
+        </div>
 
     </div>
 

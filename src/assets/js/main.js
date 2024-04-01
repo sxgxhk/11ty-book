@@ -5,8 +5,9 @@ import mediumZoom from "medium-zoom";
 import search from "./search";
 import Artalk from "./ArtalkLite";
 import quicklink from "quicklink/dist/quicklink.umd";
+
 import "./highlightjs-badge.min.js"
-import { getMemos } from "./memos.js";
+import { getMemos,parseMemos } from "./memos.js";
 
 
 window.Alpine = Alpine;
@@ -22,10 +23,10 @@ Alpine.data('memos', () => ({
     limit:0,
     offset:0,
     url:'',
-    getMemoss:async function(){
+    getMemoss:function(){
         this.data = getMemos(this.url,this.limit,this.offset);
     },
-    loadmore:async function(){
+    loadmore:function(){
         this.offset = this.offset + this.offset;
         this.limit = this.limit + this.limit;
         console.log(this.getMemoss())
