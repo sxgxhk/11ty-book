@@ -139,17 +139,16 @@ export function parseMemos(data) {
         if (tagArr) {
             memosTag = tagArr
                 .map((t) => {
-                    return `<div class="item-tag d-flex align-items-center text-sm line-xl mr-2 px-2" onclick="getTagNow('${link}','${creatorId}','${creatorName}','${avatar}',this)">${String(
-                        t
-                    ).replace(/[#]/, "")}</div>`;
+                    return `<a href="javascript:void">#${String(t
+                    ).replace(/[#]/, "")}</a>`;
                 })
                 .join("");
         } else {
-            memosTag = `<div class="item-tag d-flex align-items-center text-sm line-xl mr-2 px-2 no-cursor">动态</div>`;
+            memosTag = ``;
         }
 
         memo.content = memosRes;
-        memo.tagArr = tagArr;
+        memo.tagArr = memosTag;
         data[i] = memo;
     }
 
