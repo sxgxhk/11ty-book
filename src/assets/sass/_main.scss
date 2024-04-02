@@ -269,8 +269,12 @@ body[dir="rtl"] .book-menu {
   margin-top: $padding-16;
 }
 
-.book-languages {
+.book-languages,.book-theme {
   margin-block-end: $padding-16 * 2;
+
+  div:first-child{
+    font-weight: bolder;
+  }
 
   .book-icon {
     height: 1em;

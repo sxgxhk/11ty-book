@@ -27,7 +27,7 @@
                 </div> {% endcomment %}
                 <div class="atk-body">
                     <div class="atk-content" >
-                        <div x-html="item.content">我之前用的所有主题都是单栏，这个主题打破了我的习惯</div>
+                        <div x-html="item.content" x-on:load="console.log($el.clientHeight+$el.scrollHeight)">我之前用的所有主题都是单栏，这个主题打破了我的习惯</div>
 
                         <div x-html="item.tagArr"></div>
                     </div>
