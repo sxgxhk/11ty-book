@@ -31,17 +31,15 @@
     }
 }
 
-.book-toc-top{
+.book-toc-top {
     margin-top: auto;
 }
 
-.book-toc-content{
+.book-toc-content {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
-
-
 
 /** memos **/
 
@@ -53,30 +51,152 @@
     display: inline-block;
     max-width: 100%;
 
-    :last-child{
+    :last-child {
         margin-bottom: 0;
     }
-    :first-child{
+    :first-child {
         margin-top: 0;
     }
-    .atk-height-limit:after{
+    .atk-height-limit:after {
         left: 0;
     }
 }
 
-.btn-more{
+.btn-more {
     margin: 1.5rem 0;
 }
 
 .video-wrapper {
-	position: relative;
-	display: flex;
-	padding-bottom: 56%;
-	height: 0
+    position: relative;
+    display: flex;
+    padding-bottom: 56%;
+    height: 0;
 }
 
 .video-wrapper iframe {
-	position: absolute;
-	width: 100%;
-	height: 100%
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*
+  default blend mode is multiply. Set to normal to avoid effects we don't want.
+*/
+// ::view-transition-old(root),
+// ::view-transition-new(root) {
+//     mix-blend-mode: normal;
+// }
+
+// ::view-transition-old(book-page) {
+//   animation: slideOutToLeft 0.3s;
+// }
+
+// ::view-transition-new(book-pag) {
+//   animation: slideToLeft 0.3s;
+// }
+
+// ::view-transition-old(book-page) {
+//     display: none;
+// }
+
+// ::view-transition-new(book-page) {
+//     animation: slideUp 0.2s;
+// }
+
+// [data-page="two"]::view-transition-old(root) {
+//   animation: slideOutToRight 0.3s;
+// }
+
+// [data-page="two"]::view-transition-new(root) {
+//   animation: slideToRight 0.3s;
+// }
+
+// [data-page="three"]::view-transition-old(root) {
+//   animation: slideOutDown 0.3s;
+// }
+
+// [data-page="three"]::view-transition-new(root) {
+//   animation: slideDown 0.3s;
+// }
+
+/** view-transition-animation **/
+@keyframes slideToLeft {
+    from {
+        transform: translateX(100vw);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutToLeft {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100vw);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100vh);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOutUp {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100vh);
+    }
+}
+
+@keyframes slideToRight {
+    from {
+        transform: translateX(-100vw);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutToRight {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100vh);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOutDown {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(100vh);
+    }
 }
