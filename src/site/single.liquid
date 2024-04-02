@@ -35,7 +35,6 @@ permalink: /{{ post.slug }}/
 
 {% assign has_tag = post.tags | where:'name','#post-toc' | first %}
 
-{% if has_tag %}
 
 {% block toc %}
 {% include 'partials/toc',post:post %}
@@ -47,5 +46,3 @@ permalink: /{{ post.slug }}/
 {% include 'partials/toc',html:post.html %}
 </aside>
 {% endblock %}
-
-{% endif %}
