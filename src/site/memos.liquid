@@ -11,7 +11,7 @@
 
 {% block content %}
 <div class="markdown book-article">
-<h1>Memos</h1>
+<h1 class="book-title">Memos</h1>
     <div  x-data="memos" x-init="url='{{memos.url}}';limit={{memos.limit}};offset={{memos.offset}};getMemoss()">
         <template x-for="item in data">
         <div class="atk-comment">

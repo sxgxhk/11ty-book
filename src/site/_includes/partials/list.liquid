@@ -1,6 +1,6 @@
 {% for post in posts %}
   <article class="markdown book-post">
-    <h2>
+    <h2 class="book-title">
       <a href="{{ post.slug | articleUrl }}">{{ post.title }}</a>
     </h2>
     {% comment %} {{ partial "docs/post-meta" . }} {% endcomment %}

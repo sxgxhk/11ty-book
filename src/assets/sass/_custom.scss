@@ -112,13 +112,19 @@
 //   animation: slideToRight 0.3s;
 // }
 
-// [data-page="three"]::view-transition-old(root) {
-//   animation: slideOutDown 0.3s;
-// }
+.book-title{
+    view-transition-name: book-title;
+}
 
-// [data-page="three"]::view-transition-new(root) {
-//   animation: slideDown 0.3s;
-// }
+::view-transition-old(book-title) {
+  display: none;
+  animation: slideOutDown 0.3s;
+
+}
+
+::view-transition-new(book-title) {
+  animation: slideDown 0.3s;
+}
 
 /** view-transition-animation **/
 @keyframes slideToLeft {
@@ -183,7 +189,7 @@
 
 @keyframes slideDown {
     from {
-        transform: translateY(-100vh);
+        transform: translateY(-50px);
     }
 
     to {
@@ -197,6 +203,6 @@
     }
 
     to {
-        transform: translateY(100vh);
+        transform: translateY(50px);
     }
 }
