@@ -37,7 +37,7 @@ permalink: /{{ post.slug }}/
 
 
 {% block toc %}
-{% include 'partials/toc',post:post %}
+{% include 'partials/toc',html:post.html %}
 {% endblock %}
 
 

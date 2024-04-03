@@ -6,7 +6,7 @@ import search from "./search";
 import Artalk from "./ArtalkLite";
 import quicklink from "quicklink/dist/quicklink.umd";
 
-import "./highlightjs-badge.min.js";
+// import "./highlightjs-badge.min.js";
 import { getMemos, parseMemos } from "./memos.js";
 
 window.Alpine = Alpine;
@@ -92,17 +92,17 @@ function changeTheme(theme, name) {
     localStorage.name = name;
 }
 
-var options = {
-    // optional
-    contentSelector: ".markdown",
-    copyiconclass: "test",
-    copyIconContent:
-        "<img src='" +
-        location.origin +
-        "/assets/svg/theme.svg' class='book-icon' /></span>",
-};
+// var options = {
+//     // optional
+//     contentSelector: ".markdown",
+//     copyiconclass: "test",
+//     copyIconContent:
+//         "<img src='" +
+//         location.origin +
+//         "/assets/svg/theme.svg' class='book-icon' /></span>",
+// };
 
-window.highlightJsBadge(options);
+// window.highlightJsBadge(options);
 
 var options = { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 };
 function success(pos) {

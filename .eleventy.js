@@ -78,7 +78,7 @@ module.exports = function (config) {
     //   config.addShortcode("isSamePageOrSection", isSamePageOrSection);
     //   config.addShortcode("svg", svg);
     //   config.addShortcode("currentYear", currentYear);
-    config.addShortcode("tocGen", toc);
+    config.addFilter("tocGen", toc);
 
     // Layout aliases
     // config.addLayoutAlias("base", "layouts/base.liquid");

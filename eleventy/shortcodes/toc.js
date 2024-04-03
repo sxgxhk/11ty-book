@@ -8,6 +8,12 @@ module.exports = (html) => {
     let currentH2 = null;
     let currentH3 = null;
 
+    let els = $("h2, h3, h4");
+
+    if(els.length == 0) {
+        return;
+    }
+
     $("h2, h3, h4").each((i, el) => {
         const tagName = $(el).prop("tagName");
         const id = $(el).attr("id");

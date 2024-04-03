@@ -2,8 +2,12 @@
   <nav>
     <ul>
       <li class="book-section-flat">
-        <strong>TOC </strong>
-        {% tocGen html %}
+        {% assign toc = html | tocGen %}
+        {% if toc %}
+          <strong>TOC
+            </strong>
+          {{toc}}
+        {% endif %}
       </li>
     </ul>
   </nav>
