@@ -79,7 +79,6 @@
     height: 100%;
 }
 
-
 /*
   default blend mode is multiply. Set to normal to avoid effects we don't want.
 */
@@ -112,18 +111,17 @@
 //   animation: slideToRight 0.3s;
 // }
 
-.book-title{
+.book-title {
     view-transition-name: book-title;
 }
 
 ::view-transition-old(book-title) {
-  display: none;
-  animation: slideOutDown 0.3s;
-
+    display: none;
+    animation: slideOutDown 0.3s;
 }
 
 ::view-transition-new(book-title) {
-  animation: slideDown 0.3s;
+    animation: slideDown 0.3s;
 }
 
 /** view-transition-animation **/
@@ -204,5 +202,32 @@
 
     to {
         transform: translateY(50px);
+    }
+}
+
+:root{
+    --sb-track-color: var( --body-background);
+    --sb-thumb-color: var(--gray-500);
+    --sb-size: 7px;
+}
+
+*::-webkit-scrollbar {
+    width: var(--sb-size);
+    height: var(--sb-size);
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 3px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    * {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
     }
 }
