@@ -11,7 +11,20 @@
 
 {% block content %}
 <div class="markdown book-article">
-<h1 class="book-title">Memos</h1>
+    <div class="memo-header" style="background-image: url({{site.cover_image}});">
+        <div class="memo-info">
+            <div class="flex align-center">
+                <span class="memo-title">1900的朋友圈</span>
+                <div class="memo-avartar">
+                    <img class="" src="{{site.logo}}" data-sizes="auto" >
+                </div>
+            </div>
+            <div class="memo-desc">纵使生活有千般不如意，也不要自暴自弃！</div>
+        </div>
+
+    </div>
+
+
     <div  x-data="memos" x-init="url='{{memos.url}}';limit={{memos.limit}};offset={{memos.offset}};getMemoss()">
         <template x-for="item in data">
         <div class="atk-comment">
@@ -28,7 +41,13 @@
                 <div class="atk-body">
                     <div class="atk-content" >
                         <div x-html="item.content" x-on:load="console.log($el.clientHeight+$el.scrollHeight)">我之前用的所有主题都是单栏，这个主题打破了我的习惯</div>
-
+                        <div class="resource-wrapper">
+                            <div class="images-wrapper my-2" view-image="">
+                                <template x-for="img in item.resourceList">
+                                <div class="memo-resource w-100"><img class="lozad" x-bind:src="img.externalLink" data-loaded="true"></div>
+                                </template>
+                            </div>
+                        </div>
                         <div x-html="item.tagArr"></div>
                     </div>
                 </div>
