@@ -11,12 +11,12 @@
 
 {% block content %}
 <div class="markdown book-article">
-    <div class="memo-header" style="background-image: url({{site.cover_image}});">
+    <div class="memo-header" style="background-image: url({{collections.authors[0].cover_image}});">
         <div class="memo-info">
             <div class="flex align-center">
-                <span class="memo-title">1900的朋友圈</span>
+                <span class="memo-title">{{collections.authors[0].name}}</span>
                 <div class="memo-avartar">
-                    <img class="" src="{{site.logo}}" data-sizes="auto" >
+                    <img class="" src="{{collections.authors[0].profile_image}}" data-sizes="auto" >
                 </div>
             </div>
             <div class="memo-desc">纵使生活有千般不如意，也不要自暴自弃！</div>
@@ -29,7 +29,7 @@
         <template x-for="item in data">
         <div class="atk-comment">
             <div class="atk-avatar"><a target="_blank" rel="noreferrer noopener nofollow" href="#"><img
-                        src="https://cravatar.cn/avatar/cc38267b10cc25dfc62209f8ca34589e?d=mp&s=240"></a></div>
+                        src="{{collections.authors[0].profile_image}}"></a></div>
             <div class="atk-main">
                 {% comment %} <div class="atk-header">
                     <span class="atk-item atk-nick"><a target="_blank" rel="noreferrer noopener nofollow"
