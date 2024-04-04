@@ -1,3 +1,5 @@
+这是适配11ty和ghost的版本
+
 # Hugo Book Theme
 
 [![Hugo](https://img.shields.io/badge/hugo-0.79-blue.svg)](https://gohugo.io)
