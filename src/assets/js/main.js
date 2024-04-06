@@ -28,8 +28,9 @@ Alpine.data("memos", () => ({
     loadmore: function () {
         this.offset = this.offset + this.offset;
         this.limit = this.limit + this.limit;
-        console.log(this.getMemoss());
+        this.getMemoss();  
     },
+    initZoom:initZoom
 }));
 
 Alpine.start();
@@ -42,13 +43,15 @@ gallery.forEach(function (e) {
     l.style.flex = a + " 1 0%";
 });
 
-const images = document.querySelectorAll(".markdown img");
-mediumZoom(images, {
+function initZoom(){
+mediumZoom(".markdown img", {
     background: "rgba(0,0,0,0.75)",
     container: ".medium-zoom-overlay",
 });
+}
 
 search();
+initZoom();
 
 if (navigator.serviceWorker) {
     navigator.serviceWorker.register(location.origin + "/sw.js", {
@@ -104,15 +107,15 @@ function changeTheme(theme, name) {
 
 // window.highlightJsBadge(options);
 
-var options = { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 };
-function success(pos) {
-    var crd = pos.coords;
-    console.log("Your current position is:");
-    console.log("Latitude : " + crd.latitude);
-    console.log("Longitude: " + crd.longitude);
-    console.log("More or less " + crd.accuracy + " meters.");
-}
-function error(err) {
-    console.warn("ERROR(" + err.code + "): " + err.message);
-}
-navigator.geolocation.getCurrentPosition(success, error, options);
+// var options = { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 };
+// function success(pos) {
+//     var crd = pos.coords;
+//     console.log("Your current position is:");
+//     console.log("Latitude : " + crd.latitude);
+//     console.log("Longitude: " + crd.longitude);
+//     console.log("More or less " + crd.accuracy + " meters.");
+// }
+// function error(err) {
+//     console.warn("ERROR(" + err.code + "): " + err.message);
+// }
+// navigator.geolocation.getCurrentPosition(success, error, options);
