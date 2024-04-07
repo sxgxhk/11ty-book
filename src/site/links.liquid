@@ -1,0 +1,39 @@
+---
+  permalink: /links/index.html
+---
+{% layout "layouts/base" %}
+
+
+{% block head %}{% include 'partials/head',title:post.title %}{% endblock %}
+
+{% block header %}{% include 'partials/header',title:post.title %}{% endblock %}
+
+
+{% block content %}
+<ul>
+{% for item in collections.feeds %}
+    <li>{{item.title}}: <a href="{{item.site_url}}">{{item.site_url}}</a></li> 
+{% endfor %}
+</ul>
+{% endblock %}
+
+
+{% block footer %}
+{% include 'partials/footer',post:post %}
+{% endblock %}
+
+{% comment %} {% block comments %}
+{% include 'partials/comment' %}
+{% endblock %} {% endcomment %}
+
+
+
+{% block toc %}{% include 'partials/toc-tagloop' %}{% endblock %}
+
+{% block h-toc %}
+<aside class="hidden clearfix">
+
+{% include 'partials/toc-tagloop' %}
+
+</aside>
+{% endblock %}

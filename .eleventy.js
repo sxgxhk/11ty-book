@@ -43,11 +43,13 @@ const {
 
 // Init Ghost API
 const api = new ghostContentAPI({ ...ghost });
+
 // const pd = require("pandas");
 
 // const axios = require("axios");
 
 const loadData = mode[process.env.NODE_ENV.trim()].limit;
+const fluxToken = process.env.FLULX_TOKEN;
 
 module.exports = function (config) {
     config.addTransform("parseContent", parseContent);
@@ -92,18 +94,9 @@ module.exports = function (config) {
     // Don't ignore the same files ignored in the git repo
     config.setUseGitIgnore(false);
 
-
-
-
-    
-
-    
     config.addGlobalData("taxonomys", taxonomy);
     config.addGlobalData("footer", footer);
     config.addGlobalData("memos", memos);
-
-
-
 
     // Get all pages, called 'docs' to prevent
     // conflicting the eleventy page object
@@ -295,34 +288,20 @@ module.exports = function (config) {
 
     // Get All feeds
     config.addCollection("feeds", async function (collection) {
-        // fetch(umiUrl, {
-        //     method: 'GET',
-        //     mode: 'cors',
-        //     cache: 'default',
-        //     headers: {
-        //     Authorization: 'Bearer ' + umiData.token,
-        //     'Content-Type': 'application/json'
-        //     }
-        // }).then(res => res.json()).then(resdata => {
-        //     let data = groupBy(resdata, item => item.x).map(g => ({
-        //     name: g.key,
-        //     typeId: g.items.map(item => item.t),
-        //     number: g.items.reduce((sum, item) => sum + item.y, 0)
-        //     }));
-        //     Likes = data.filter(function (item) {
-        //     return item.name == 'Like';
-        //     });
-        //     if (Likes.length !== 0) {
-        //     let likeNum = Likes[0].number;
-        //     num.innerHTML = likeNum;
-        //     btn.dataset.like = likeNum;
-        //     btn.ariaLabel = btn.ariaLabel.replace(' 0 ', ' ' + likeNum + ' ');
-        //     } else {
-        //     num.innerHTML = 0;
-        //     btn.dataset.like = 0;
-        //     }
-        // });
-        return collection;
+        if (fluxToken) {
+            try {
+                const response = await fetch("https://flux.1900.live/v1/categories/4/feeds", {
+                    method: "GET",
+                    headers: {
+                        "X-Auth-Token": fluxToken,
+                    },
+                });
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.log("请求错误:", error);
+            }
+        }
     });
 
     return {
