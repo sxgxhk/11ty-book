@@ -44,11 +44,12 @@ gallery.forEach(function (e) {
 });
 
 function initZoom() {
-    this.$nextTick(() => {
-        mediumZoom(".markdown img", {
-            background: "rgba(0,0,0,0.75)",
-        });
-    });
+    // this.$nextTick(() => {
+    //     mediumZoom(".markdown img", {
+    //         background: "rgba(0,0,0,0.75)",
+    //     });
+    // });
+    return;
 }
 
 search();
