@@ -261,7 +261,40 @@ module.exports = function (config) {
         return pagedPosts;
     });
 
+    // Get All memos
     config.addCollection("memos", async function (collection) {
+        // fetch(umiUrl, {
+        //     method: 'GET',
+        //     mode: 'cors',
+        //     cache: 'default',
+        //     headers: {
+        //     Authorization: 'Bearer ' + umiData.token,
+        //     'Content-Type': 'application/json'
+        //     }
+        // }).then(res => res.json()).then(resdata => {
+        //     let data = groupBy(resdata, item => item.x).map(g => ({
+        //     name: g.key,
+        //     typeId: g.items.map(item => item.t),
+        //     number: g.items.reduce((sum, item) => sum + item.y, 0)
+        //     }));
+        //     Likes = data.filter(function (item) {
+        //     return item.name == 'Like';
+        //     });
+        //     if (Likes.length !== 0) {
+        //     let likeNum = Likes[0].number;
+        //     num.innerHTML = likeNum;
+        //     btn.dataset.like = likeNum;
+        //     btn.ariaLabel = btn.ariaLabel.replace(' 0 ', ' ' + likeNum + ' ');
+        //     } else {
+        //     num.innerHTML = 0;
+        //     btn.dataset.like = 0;
+        //     }
+        // });
+        return collection;
+    });
+
+    // Get All feeds
+    config.addCollection("feeds", async function (collection) {
         // fetch(umiUrl, {
         //     method: 'GET',
         //     mode: 'cors',

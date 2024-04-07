@@ -28,9 +28,9 @@ Alpine.data("memos", () => ({
     loadmore: function () {
         this.offset = this.offset + this.offset;
         this.limit = this.limit + this.limit;
-        this.getMemoss();  
+        this.getMemoss();
     },
-    initZoom:initZoom
+    initZoom: initZoom,
 }));
 
 Alpine.start();
@@ -43,11 +43,12 @@ gallery.forEach(function (e) {
     l.style.flex = a + " 1 0%";
 });
 
-function initZoom(){
-mediumZoom(".markdown img", {
-    background: "rgba(0,0,0,0.75)",
-    container: ".medium-zoom-overlay",
-});
+function initZoom() {
+    this.$nextTick(() => {
+        mediumZoom(".markdown img", {
+            background: "rgba(0,0,0,0.75)",
+        });
+    });
 }
 
 search();

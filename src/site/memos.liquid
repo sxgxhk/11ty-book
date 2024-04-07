@@ -25,7 +25,7 @@
     </div>
 
 
-    <div  x-data="memos" x-init="url='{{memos.url}}';limit={{memos.limit}};offset={{memos.offset}};getMemoss();">
+    <div  x-data="memos" x-init="url='{{memos.url}}';limit={{memos.limit}};offset={{memos.offset}};getMemoss();initZoom();">
         <template x-for="item in data">
         <div class="atk-comment">
             <div class="atk-avatar"><a target="_blank" rel="noreferrer noopener nofollow" href="#"><img
@@ -40,11 +40,11 @@
                 </div> {% endcomment %}
                 <div class="atk-body">
                     <div class="atk-content" >
-                        <div x-html="item.content" x-on:load="console.log($el.clientHeight+$el.scrollHeight)">我之前用的所有主题都是单栏，这个主题打破了我的习惯</div>
+                        <div x-html="item.content" >我之前用的所有主题都是单栏，这个主题打破了我的习惯</div>
                         <div class="resource-wrapper">
                             <div class="images-wrapper my-2" view-image="">
                                 <template x-for="img in item.resourceList">
-                                <div class="memo-resource w-100"><img class="lazyload  medium-zoom-image" x-bind:src="img.externalLink" x-bind:data-zoom="img.externalLink" data-loaded="true"></div>
+                                <div class="memo-resource w-100"><img class="lazyload  medium-zoom-image" :src="img.externalLink" :data-zoom="img.externalLink" data-loaded="true"></div>
                                 </template>
                             </div>
                         </div>
