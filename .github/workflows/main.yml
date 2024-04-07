@@ -23,6 +23,8 @@ jobs:
 
       - name: Build production bundle
         uses: borales/actions-yarn@v4
+        env:
+          FLUX_TOKEN: ${{secrets.FLUX_TOKEN}}
         with:
           cmd: prod # will run `yarn prod` command
 
@@ -32,7 +34,6 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          FLUX_TOKEN: ${{secrets.FLUX_TOKEN}}
           build_directory: dist
         with:
           args: deploy --prod
