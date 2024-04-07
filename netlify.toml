@@ -22,13 +22,6 @@
   force = true
 
 [[redirects]]
-  from = "/*"
-  to = "/404/"
-  status = 404
-
-
-
-[[redirects]]
   from = "/.well-known/webfinger"
   to = "https://gts.1900.live/.well-known/webfinger"
   status = 301
@@ -45,3 +38,8 @@
   to = "https://gts.1900.live/.well-known/nodeinfo"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/404/"
+  status = 404
