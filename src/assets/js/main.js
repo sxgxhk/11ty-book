@@ -44,6 +44,9 @@ gallery.forEach(function (e) {
 });
 
 function initZoom() {
+    mediumZoom(".markdown img", {
+        background: "rgba(0,0,0,0.75)",
+    });
     // this.$nextTick(() => {
     //     mediumZoom(".markdown img", {
     //         background: "rgba(0,0,0,0.75)",
