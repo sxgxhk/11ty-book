@@ -49,7 +49,7 @@ const api = new ghostContentAPI({ ...ghost });
 // const axios = require("axios");
 
 const loadData = mode[process.env.NODE_ENV.trim()].limit;
-const fluxToken = process.env.FLULX_TOKEN;
+const fluxToken = process.env.FLUX_TOKEN;
 
 module.exports = function (config) {
     config.addTransform("parseContent", parseContent);
