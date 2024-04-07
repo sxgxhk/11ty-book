@@ -25,3 +25,20 @@
   from = "/*"
   to = "/404/"
   status = 404
+
+
+
+[[redirects]]
+  from = "/.well-known/webfinger"
+  to = "https://social.example.org/.well-known/webfinger"
+  status = 301
+
+[[redirects]]
+  from = "/.well-known/host-meta"
+  to = "https://social.example.org/.well-known/host-meta"
+  status = 301
+
+[[redirects]]
+  from = "/.well-known/nodeinfo"
+  to = "https://social.example.org/.well-known/nodeinfo"
+  status = 301
