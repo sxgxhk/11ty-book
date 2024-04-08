@@ -1,0 +1,39 @@
+on: 
+  repository_dispatch:
+    types:
+      - update
+  schedule:
+    - cron: '0 2 * * *' 
+    
+jobs:
+  build_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Set Node.js 20.x
+        uses: actions/setup-node@master
+        with:
+          node-version: 20.x        
+
+      - name: Run install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install # will run `yarn install` command
+
+      - name: Build production bundle
+        uses: borales/actions-yarn@v4
+        env:
+          FLUX_TOKEN: ${{secrets.FLUX_TOKEN}}
+        with:
+          cmd: prod # will run `yarn prod` command
+
+
+      - name: Deploy to Netlify
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          build_directory: dist
+        with:
+          args: deploy --prod

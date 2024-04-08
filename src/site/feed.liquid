@@ -1,0 +1,32 @@
+---
+permalink: rss.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title }}</title>
+  <subtitle>{{ site.description }}</subtitle>
+  <link href="{{ '' | absoluteUrl }}" rel="self"/>
+  <link href="{{ '' | absoluteUrl }}"/>
+  {% if collections.posts %}
+    <updated>{{ collections.posts | rssLastUpdatedDate }}</updated>
+  {% endif %}
+  <id>{{ '/' | absoluteUrl }}</id>
+  <author>
+    <name>{{ collections.authors[0].name }}</name>
+  </author>
+  {% for post in collections.posts limit:30 %}
+      <entry>
+        <title>{{ post.title }}</title>
+        <link href="{{ post.slug | articleUrl }}"/>
+        <updated>{{ post.published_at }}</updated>
+        <id>{{ post.slug | articleUrl }}</id>
+        {% if post.excerpt %}
+          <content type="html">
+            <![CDATA[
+          {{ post.excerpt }}
+        ]]>
+          </content>
+        {% endif %}
+      </entry>
+  {% endfor %}
+</feed>

@@ -1,0 +1,93 @@
+<meta charset="UTF-8">
+<meta name="view-transition" content="same-origin" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{site.description}}">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark">
+
+{% comment %} 
+{{- with .Page.Params.BookHref -}}
+  <meta http-equiv="Refresh" content="0; url='{{ . }}'" />
+{{- end -}} 
+{% endcomment %}
+
+{% comment %} 
+  {{- template "_internal/opengraph.html" . -}} 
+{% endcomment %}
+
+<title>{% if title %}{{title}} | {% endif %}{{site.title}} - {{site.description}}</title>
+
+<link rel="manifest" href="{{ '/manifest.json' | absoluteUrl  | cacheBust }}">
+
+<link rel="icon" href="{{ '/assets/img/favicon.png' | absoluteUrl  | cacheBust }}" >
+<link rel="canonical" href="{{ '' | absoluteUrl }}">
+
+{{ site.codeinjection_head  }}
+
+<link rel="stylesheet" href="{{ '/assets/main.css' | absoluteUrl | cacheBust }}">
+
+<script>
+    const theme = localStorage.theme;
+    if (localStorage.theme != 'auto') {
+        document.documentElement.classList.add(theme);
+        localStorage.theme = theme;
+    }
+      localStorage.name = localStorage.name || '自适应';
+      localStorage.theme = theme || 'auto';
+
+</script>
+  
+
+{% comment %} 
+<script defer src="{{ '/sw.js' | absoluteUrl | cacheBust }}"></script>
+
+<script>
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.register(
+      "{{ '/sw.js' | absoluteUrl | cacheBust }}", 
+      { scope: "{{ "" | absoluteUrl }}" }
+    );
+  }
+</script> {% endcomment %}
+
+
+{% comment %} 
+
+
+{{- range .Translations }}
+  <link rel="alternate" hreflang="{{ default .Language.Lang .Site.LanguageCode }}" href="{{ .Permalink }}" title="{{ partial "docs/title" . }}">
+{{- end -}}
+
+{% endcomment %}
+
+{% comment %} 
+{{- if default true .Site.Params.BookSearch -}}
+  {{- $searchJSFile := printf "%s.search.js" .Language.Lang }}
+  {{- $searchJS := resources.Get "search.js" | resources.ExecuteAsTemplate $searchJSFile . | resources.Minify | resources.Fingerprint }}
+  <script defer src="{{ "flexsearch.min.js" | relURL }}"></script>
+  <script defer src="{{ $searchJS.RelPermalink }}" {{ template "integrity" $searchJS }}></script>
+{{ end -}}
+
+{{- if .Site.Params.BookServiceWorker -}}
+  {{- $swJS := resources.Get "sw-register.js" | resources.ExecuteAsTemplate "sw.js" . | resources.Minify | resources.Fingerprint }}
+  <script defer src="{{ $swJS.RelPermalink }}" {{ template "integrity" $swJS }}></script>
+{{ end -}}
+
+{{- template "_internal/google_analytics.html" . -}}
+
+<!-- RSS -->
+{{- with .OutputFormats.Get "rss" -}}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
+
+{{ "<!--" | safeHTML }}
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+{{ "-->" | safeHTML }}
+
+{{- define "integrity" -}}
+  {{- if (urls.Parse .Permalink).Host -}}
+    integrity="{{ .Data.Integrity }}" crossorigin="anonymous"
+  {{- end -}}
+{{- end -}} {% endcomment %}

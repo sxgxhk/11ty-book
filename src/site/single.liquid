@@ -1,0 +1,49 @@
+---
+pagination:
+  data: collections.posts
+  size: 1
+  alias: post
+permalink: /{{ post.slug }}/
+---
+{% layout "layouts/base" %}
+
+
+{% block head %}{% include 'partials/head',title:post.title %}{% endblock %}
+
+{% block header %}{% include 'partials/header',title:post.title %}{% endblock %}
+
+
+{% block content %}
+  <article class="markdown book-article">
+    <h1 class="book-title">
+      {{ post.title }}
+    </h1>
+    {% include  "partials/post-meta",img:true,post:post %}
+    {{ post.html  }} 
+  </article>
+{% endblock %}
+
+
+{% block footer %}
+{% include 'partials/footer',post:post %}
+{% endblock %}
+
+{% block comments %}
+{% include 'partials/comment' %}
+{% endblock %}
+
+
+{% assign has_tag = post.tags | where:'name','#post-toc' | first %}
+
+
+{% block toc %}
+{% include 'partials/toc',html:post.html %}
+
+{% endblock %}
+
+
+{% block h-toc %}
+<aside class="hidden clearfix">
+{% include 'partials/toc',html:post.html %}
+</aside>
+{% endblock %}
