@@ -65,6 +65,13 @@
   display: none;
 }
 
+.ellipsis{    
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
 input.toggle {
   height: 0;
   width: 0;

@@ -290,18 +290,31 @@ module.exports = function (config) {
     config.addCollection("feeds", async function (collection) {
         if (fluxToken) {
             try {
-                const response = await fetch("https://flux.1900.live/v1/categories/4/feeds", {
-                    method: "GET",
-                    headers: {
-                        "X-Auth-Token": fluxToken,
-                    },
+                const response = await fetch(
+                    "https://flux.1900.live/v1/categories/4/entries?order=id&direction=desc&limit=99999",
+                    {
+                        method: "GET",
+                        headers: {
+                            "X-Auth-Token": fluxToken,
+                        },
+                    }
+                );
+                let data = await response.json();
+                data = data.entries.filter((entry, index, self) => {
+                    const domain = new URL(entry.feed.site_url).origin;
+                    entry.feed.site_url = domain;
+                    return (
+                        self.findIndex(
+                            (item) => item.feed_id === entry.feed_id
+                        ) === index
+                    );
                 });
-                const data = await response.json();
                 return data;
             } catch (error) {
                 console.log("请求错误:", error);
             }
         }
+        return collection;
     });
 
     return {
