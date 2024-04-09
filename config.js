@@ -49,7 +49,7 @@ module.exports = {
     footer: [
         {
             name: "2",
-            html: "<a href='https://github.com/rebron1900' target='_blank'>Github</a>",
+            html: "<a href='https://github.com/rebron1900' target='_blank'>Github</a> | <a href='https://1900.live/rss'  target='_blank'>Rss</a>",
         },
         {
             name: "copyright",
