@@ -1,0 +1,34 @@
+---
+permalink: sitemap.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% if docs %}
+    {% for doc in collections.docs %}
+      <url>
+          <loc>{{ doc.slug | absoluteUrl }}</loc>
+          <lastmod>{{ doc.updatedAt | htmlDate }}</lastmod>
+      </url>
+    {% endfor %}
+  {% endif %}
+
+  
+  {% if collections.posts %}
+    {% for post in collections.posts %}
+      <url>
+          <loc>{{ post.slug | articleUrl }}</loc>
+          <lastmod>{{ post.published_at | htmlDate }}</lastmod>
+      </url>
+    {% endfor %}
+  {% endif %}
+
+
+  {% if collections.tags %}
+    {% for tag in collections.tags %}
+      <url>
+        <loc>{{ "tags/" | append: tag.slug | articleUrl }}
+          </loc>
+      </url>
+    {% endfor %}
+  {% endif %}
+</urlset>
