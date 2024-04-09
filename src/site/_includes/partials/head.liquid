@@ -68,6 +68,8 @@
   {{- template "_internal/opengraph.html" . -}} 
 {% endcomment %}
 
+<link rel="sitemap" type="application/xml" title="{{site.title}}的站点地图" href="{{ '/sitemap.xml' | absoluteUrl }}">
+<link rel="alternate" type="application/rss+xml" title="{{site.title}}的Rss" href="{{ '/rss.xml' | absoluteUrl }}">
 
 <link rel="manifest" href="{{ '/manifest.json' | absoluteUrl  | cacheBust }}">
 
