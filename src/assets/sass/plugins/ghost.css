@@ -923,6 +923,8 @@ p.kg-collection-card-post-excerpt {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin: 1rem 0;
+
 }
 
 .kg-gallery-image img {
