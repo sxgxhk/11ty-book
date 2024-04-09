@@ -3,11 +3,10 @@ permalink: sitemap.xml
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  {% if docs %}
+  {% if collections.docs %}
     {% for doc in collections.docs %}
       <url>
-          <loc>{{ doc.slug | absoluteUrl }}</loc>
-          <lastmod>{{ doc.updatedAt | htmlDate }}</lastmod>
+          <loc>{{ "/"  | append: doc.slug | absoluteUrl }}</loc>
       </url>
     {% endfor %}
   {% endif %}
