@@ -97,6 +97,7 @@ module.exports = function (config) {
     config.addGlobalData("taxonomys", taxonomy);
     config.addGlobalData("footer", footer);
     config.addGlobalData("memos", memos);
+    config.addGlobalData("site_url",mode[process.env.NODE_ENV.trim()]);
 
     // Get all pages, called 'docs' to prevent
     // conflicting the eleventy page object
