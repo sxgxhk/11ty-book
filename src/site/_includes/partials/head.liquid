@@ -15,7 +15,7 @@
 
 {% assign og_desc = "" %}
 {% if post.excerpt %}
-  {% assign og_desc = post.excerpt | strip_newlines | strip_html | escape %}
+  {% assign og_desc = post.excerpt | strip_newlines | strip_html | escape | replace: '"', ''%}
 {% else %}
   {% assign og_desc = site.description | strip_newlines | strip_html | escape %}
 {% endif %}

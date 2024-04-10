@@ -2,7 +2,7 @@ module.exports = {
     mode: {
         dev: {
             url: "http://localhost:8080",
-            limit: "20",
+            limit: "all",
         },
         pro: {
             url: "https://1900.live",
