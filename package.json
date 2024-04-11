@@ -6,7 +6,7 @@
     "author": "rebron1900 <me@1900.live>",
     "license": "MIT",
     "scripts": {
-        "11ty": "set NODE_ENV=dev && npx eleventy --serve",
+        "11ty": "set NODE_ENV=dev && npx eleventy --serve --incremental",
         "rollup": "set NODE_ENV=dev && npx rollup --config --watch",
         "start": "npx run-p 11ty rollup",
         "prod": "export NODE_ENV=pro && npx eleventy && npx rollup -c",

@@ -2,7 +2,7 @@ module.exports = {
     mode: {
         dev: {
             url: "http://localhost:8080",
-            limit: "all",
+            limit: "20",
         },
         pro: {
             url: "https://1900.live",
@@ -50,6 +50,10 @@ module.exports = {
         {
             name: "2",
             html: "<a href='https://github.com/rebron1900' target='_blank'>Github</a> | <a href='https://1900.live/rss'  target='_blank'>Rss</a>",
+        },
+        {
+            name: "theme",
+            html: "Theme: <a href='https://github.com/rebron1900/11ty-book' target='_blank'>11ty-book</a>",
         },
         {
             name: "copyright",

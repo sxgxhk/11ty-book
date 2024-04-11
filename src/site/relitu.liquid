@@ -1,0 +1,113 @@
+---
+permalink: /relitu/
+---
+
+{% layout "layouts/base" %}
+
+
+{% block head %}{% include 'partials/head',title:post.title %}{% endblock %}
+
+{% block header %}{% include 'partials/header',title:post.title %}{% endblock %}
+
+
+{% block content %}
+
+<div id="main"  style="height:400px"></div>
+
+<script src="https://img.koobai.com/echarts.min.js"></script>
+<script>
+// 假设您已经获取了JSON数据并存储在变量data中
+var data = [
+    {"time": "2024-02-05", "Monday": 70, "Tuesday": 85, "Wednesday": 90, "Thursday": 80, "Friday": 75},
+    {"time": "2024-02-12", "Monday": 60, "Tuesday": 75, "Wednesday": 85, "Thursday": 95, "Friday": 80},
+    // ... 其他日期数据
+    {"time": "2024-04-02", "Monday": 65, "Tuesday": 78, "Wednesday": 88, "Thursday": 70, "Friday": 63}
+];
+
+
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('main'));
+
+
+
+function getVirtulData() {
+    var today = echarts.number.parseDate(new Date());
+    var dayTime = 3600 * 24 * 1000;
+    var thatday = today - dayTime * 70;
+
+    var data = [];
+    for (var time = thatday; time < today; time += dayTime) {
+        data.push([
+            echarts.format.formatTime('yyyy-MM-dd', time),
+            Math.floor(Math.random() * 10000)
+        ]);
+    }
+    return {
+        data,
+        today: echarts.format.formatTime('yyyy-MM-dd', today),
+        thatday: echarts.format.formatTime('yyyy-MM-dd', thatday)
+    };
+}
+
+option = {
+    visualMap: {
+        min: 0,
+        max: 10000,
+        inRange: {
+            color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196027']
+        },
+        show: false
+    },
+    backgroundColor: '#fff',
+    calendar: {
+        cellSize: [14, 14],
+        range: [getVirtulData()['thatday'], getVirtulData()['today']],
+        itemStyle: {
+            borderColor: '#fff',
+            borderWidth: 4
+        },
+        splitLine: {
+            show: false
+        },
+        yearLabel: { show: false }
+    },
+    series: {
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: getVirtulData()['data']
+    }
+};
+
+// 使用刚指定的配置项和数据显示图表。
+myChart.setOption(option);
+
+</script>
+
+
+
+{% endblock %}
+
+
+{% block footer %}
+{% include 'partials/footer',post:post %}
+{% endblock %}
+
+{% block comments %}
+{% include 'partials/comment' %}
+{% endblock %}
+
+
+{% assign has_tag = post.tags | where:'name','#post-toc' | first %}
+
+
+{% block toc %}
+{% include 'partials/toc',html:post.html %}
+
+{% endblock %}
+
+
+{% block h-toc %}
+<aside class="hidden clearfix">
+{% include 'partials/toc',html:post.html %}
+</aside>
+{% endblock %}
