@@ -82,12 +82,13 @@ module.exports = {
             desc: "昱行粉"
         },
         {
+            name: "herblue",
+            desc: "她的蓝"
+        },
+        {
             name: "auto",
             desc: "自适应"
         },
-        {
-            name: "herblue",
-            desc: "她的蓝"
-        }
+
     ]
 };
