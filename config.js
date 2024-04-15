@@ -84,6 +84,10 @@ module.exports = {
         {
             name: "auto",
             desc: "自适应"
+        },
+        {
+            name: "herblue",
+            desc: "她的蓝"
         }
     ]
 };

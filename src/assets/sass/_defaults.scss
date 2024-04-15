@@ -123,3 +123,23 @@ $hint-colors: (
     --hint-color-warning: #fd6;
     --hint-color-danger: #f66;
 }
+
+@mixin theme-herblue {
+    --gray-100: hsla(0, 0%, 100%, .1);
+    --gray-200: hsla(0, 0%, 100%, .2);
+    --gray-500: hsla(0, 0%, 100%, .5);
+    --gray-700: hsla(0, 0%, 100%, .7);
+
+    --color-link: #7b88c8;
+    --color-visited-link: #7b88c8;
+
+    --body-background: #0B0C1B;
+    --body-font-color: #a6b4d2;
+
+    --btn-color: red;
+    --btn-bg: blue;
+    
+    --hint-color-info: #6bf;
+    --hint-color-warning: #fd6;
+    --hint-color-danger: #f66;
+}
