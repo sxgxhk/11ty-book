@@ -64,4 +64,26 @@ module.exports = {
             html: "Power by <a href='https://www.11ty.dev/' target='_blank'>11ty</a> & <a href='https://www.ghost.org/' target='_blank'>ghost</a>",
         },
     ],
+    themes:[
+        {
+            name: "light",
+            desc: "月牙白"
+        },
+        {
+            name: "dark",
+            desc: "极夜黑"
+        },
+        {
+            name: "yayu",
+            desc: "雅余黄"
+        },
+        {
+            name: "yuhang",
+            desc: "昱行粉"
+        },
+        {
+            name: "auto",
+            desc: "自适应"
+        }
+    ]
 };

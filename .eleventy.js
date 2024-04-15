@@ -39,6 +39,7 @@ const {
     customPage,
     taxonomy,
     footer,
+    themes
 } = require("./config.js");
 
 // Init Ghost API
@@ -97,6 +98,7 @@ module.exports = function (config) {
     config.addGlobalData("taxonomys", taxonomy);
     config.addGlobalData("footer", footer);
     config.addGlobalData("memos", memos);
+    config.addGlobalData("themes", themes);
     config.addGlobalData("site_url",mode[process.env.NODE_ENV.trim()]);
 
     // Get all pages, called 'docs' to prevent

@@ -11,24 +11,14 @@
     </label>
 
     <ul>
-      
-      <li>
-        <a @click="changeTheme('dark','极夜黑');setName();">
-          极夜黑
-        </a>
-      </li>
-      
-      <li>
-        <a @click="changeTheme('light','月牙白');setName();">
-          月牙白
-        </a>
-      </li>
+      {% for theme in themes %}
+        <li>
+          <a @click="changeTheme('{{ theme.name }}','{{ theme.desc }}');setName();">
+            {{ theme.desc }}
+          </a>
+        </li> 
+      {% endfor %}
 
-      <li>
-        <a  @click="changeTheme('auto','自适应');setName();">
-          自适应
-        </a>
-      </li>
       
     </ul>
   </li>

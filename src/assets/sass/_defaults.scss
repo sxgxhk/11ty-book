@@ -23,50 +23,103 @@ $toc-width: 16rem !default;
 $mobile-breakpoint: $menu-width + $body-min-width * 1.2 + $toc-width !default;
 
 $hint-colors: (
-  info: #6bf,
-  warning: #fd6,
-  danger: #f66,
-  kg-callout-card-blue: #6bf,
-  kg-callout-card-yellow: #fd6,
-  kg-callout-card-red: #f66,
+    info: #6bf,
+    warning: #fd6,
+    danger: #f66,
+    kg-callout-card-blue: #6bf,
+    kg-callout-card-yellow: #fd6,
+    kg-callout-card-red: #f66,
 ) !default;
+
+.artalk,
+.atk-layer-wrap {
+    --at-color-font: var(--body-font-color);
+    --at-color-border: var(--body-font-color);
+    --at-color-bg: var(--body-background);
+    --at-color-main: var(--body-font-color);
+}
+
+.atk-main-editor>.atk-bottom .atk-send-btn{
+    color: var(--body-background)
+}
 
 // Themes
 @mixin theme-light {
-  --gray-100: #f8f9fa;
-  --gray-200: #e9ecef;
-  --gray-500: #adb5bd;
-  --gray-700: #6c757d;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-500: #adb5bd;
+    --gray-700: #6c757d;
 
-  --color-link: #0055bb;
-  --color-visited-link: #0055bb;
+    --color-link: #0055bb;
+    --color-visited-link: #0055bb;
 
-  --body-background: white;
-  --body-font-color: black;
+    --body-background: white;
+    --body-font-color: black;
 
-  --icon-filter: none;
+    --btn-color: red;
+    --btn-bg: blue;
 
-  --hint-color-info: #6bf;
-  --hint-color-warning: #fd6;
-  --hint-color-danger: #f66;
+    --hint-color-info: #6bf;
+    --hint-color-warning: #fd6;
+    --hint-color-danger: #f66;
 }
 
-
 @mixin theme-dark {
-  --gray-100: rgba(255, 255, 255, 0.1);
-  --gray-200: rgba(255, 255, 255, 0.2);
-  --gray-500: rgba(255, 255, 255, 0.5);
-  --gray-700: rgba(255, 255, 255, 0.7);
+    --gray-100: rgba(255, 255, 255, 0.1);
+    --gray-200: rgba(255, 255, 255, 0.2);
+    --gray-500: rgba(255, 255, 255, 0.5);
+    --gray-700: rgba(255, 255, 255, 0.7);
 
-  --color-link: #84b2ff;
-  --color-visited-link: #84b2ff;
+    --color-link: #84b2ff;
+    --color-visited-link: #84b2ff;
 
-  --body-background: #181818;
-  --body-font-color: #e9ecef;
+    --body-background: #181818;
+    --body-font-color: #e9ecef;
 
-  --icon-filter: brightness(0) invert(1);
+    --btn-color: red;
+    --btn-bg: blue;
 
-  --hint-color-info: #6bf;
-  --hint-color-warning: #fd6;
-  --hint-color-danger: #f66;
+    --hint-color-info: #6bf;
+    --hint-color-warning: #fd6;
+    --hint-color-danger: #f66;
+}
+
+@mixin theme-yayu {
+    --gray-100: rgba(255, 255, 255, 0.1);
+    --gray-200: rgba(255, 255, 255, 0.2);
+    --gray-500: rgba(255, 255, 255, 0.5);
+    --gray-700: rgba(255, 255, 255, 0.7);
+
+    --color-link: #e2c274;
+    --color-visited-link: #e2c274;
+
+    --body-background: #222;
+    --body-font-color: #e3cc94;
+
+    --btn-color: red;
+    --btn-bg: blue;
+
+    --hint-color-info: #6bf;
+    --hint-color-warning: #fd6;
+    --hint-color-danger: #f66;
+}
+
+@mixin theme-yuhang {
+    --gray-100: rgba(255, 255, 255, 0.1);
+    --gray-200: rgba(255, 255, 255, 0.2);
+    --gray-500: rgba(255, 255, 255, 0.5);
+    --gray-700: rgba(255, 255, 255, 0.7);
+
+    --color-link: rgb(235, 153, 161);
+    --color-visited-link: rgb(235, 153, 161);
+
+    --body-background: #44403c;
+    --body-font-color: #f6f8fa;
+
+    --btn-color: red;
+    --btn-bg: blue;
+
+    --hint-color-info: #6bf;
+    --hint-color-warning: #fd6;
+    --hint-color-danger: #f66;
 }
