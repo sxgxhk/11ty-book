@@ -6,6 +6,7 @@ permalink: /assets/search-data.json
   {
       "id": {{ forloop.index }},
       "href": "{{ post.slug | articleUrl }}",
+      "date": "{{post.published_at}}",
       "title": {{ post.title | json}},
       "section": "{{ post.tags | map: "name"  | join: "," }}",
       "published": "{{post.published_at}}",
