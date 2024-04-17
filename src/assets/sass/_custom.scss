@@ -79,37 +79,6 @@
     height: 100%;
 }
 
-/*
-  default blend mode is multiply. Set to normal to avoid effects we don't want.
-*/
-// ::view-transition-old(root),
-// ::view-transition-new(root) {
-//     mix-blend-mode: normal;
-// }
-
-// ::view-transition-old(book-page) {
-//   animation: slideOutToLeft 0.3s;
-// }
-
-// ::view-transition-new(book-pag) {
-//   animation: slideToLeft 0.3s;
-// }
-
-// ::view-transition-old(book-page) {
-//     display: none;
-// }
-
-// ::view-transition-new(book-page) {
-//     animation: slideUp 0.2s;
-// }
-
-// [data-page="two"]::view-transition-old(root) {
-//   animation: slideOutToRight 0.3s;
-// }
-
-// [data-page="two"]::view-transition-new(root) {
-//   animation: slideToRight 0.3s;
-// }
 
 .book-title {
     view-transition-name: book-title;
@@ -322,5 +291,45 @@
     }
     .resource-wrapper>.images-wrapper.images-card {
         grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+
+
+
+/** artalk配色跟随主题变动  **/
+.artalk,
+.atk-layer-wrap {
+    --at-color-font: var(--body-font-color);
+    --at-color-border: var(--gray-200);
+    --at-color-bg: var(--gray-200);
+    --at-color-main: var(--body-font-color);
+    --at-color-grey: var(--gray-500);
+    --at-color-meta: var(--gray-700);
+    --at-color-bg-transl: var(--body-background);
+    --at-color-bg-grey: var(--at-color-bg);
+
+    .atk-main-editor > .atk-bottom {
+        .atk-send-btn {
+            color: var(--body-background);
+        }
+        .atk-plug-btn:hover {
+            background: var(--gray-500);
+        }
+    }
+
+    .atk-main-editor > .atk-textarea-wrap > .atk-textarea {
+        background: transparent;
+        &::placeholder {
+            color: var(--gray-500);
+        }
+    }
+
+    .atk-list > .atk-list-header {
+        .atk-dropdown-wrap {
+            .atk-dropdown {
+                background-color: var(--body-background);
+            }
+        }
     }
 }
