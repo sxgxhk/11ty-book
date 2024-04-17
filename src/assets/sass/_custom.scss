@@ -335,10 +335,7 @@
 }
 
 
-
-/** add copybutton **/
-
-.kg-code-card:hover >.copy-button {
+pre:hover >.copy-button {
     visibility: visible
 }
 
@@ -348,7 +345,7 @@
     top: 0;
     right: 0;
     z-index: 10;
-    width: 5rem;
+    width: 3rem;
     cursor: pointer;
     white-space: nowrap;
     line-height: 1.5rem;
