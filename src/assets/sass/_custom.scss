@@ -333,3 +333,39 @@
         }
     }
 }
+
+
+
+/** add copybutton **/
+
+.kg-code-card:hover >.copy-button {
+    visibility: visible
+}
+
+.copy-button {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    width: 5rem;
+    cursor: pointer;
+    white-space: nowrap;
+    line-height: 1.5rem;
+    opacity: .9;
+}
+
+.copy-button:hover,.copy-button:focus,.copy-button:active,.copy-button:active:hover {
+    --tw-bg-opacity: 1;
+
+}
+
+.copy-button:hover:is(.dark *),.copy-button:focus:is(.dark *),.copy-button:active:is(.dark *),.copy-button:active:hover:is(.dark *) {
+    --tw-bg-opacity: 1;
+}
+
+.copy-textarea {
+    position: absolute;
+    z-index: -10;
+    opacity: .05
+}

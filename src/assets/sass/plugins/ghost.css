@@ -8,6 +8,10 @@
     color: var(--gray-500);
 }
 
+.kg-code-card{
+    position:relative;
+}
+
 .kg-width-wide,
 .kg-width-full,
 .kg-gallery-card {

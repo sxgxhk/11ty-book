@@ -59,7 +59,7 @@
 
   {% comment %} {{ partial "docs/inject/body" . }} {% endcomment %}
   {% block scripts %}
-  <script src="{{ '/assets/main.js' | absoluteUrl | cacheBust }}"  data-taxi-reload></script>
+  <script src="{{ '/assets/main.js' | absoluteUrl | cacheBust }}" id="script-bundle" data-taxi-reload></script>
   {% endblock %}
   {{ site.codeinjection_foot  }}
 </body>

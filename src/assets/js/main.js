@@ -5,6 +5,7 @@ import mediumZoom from "medium-zoom";
 import search from "./search";
 import Artalk from "./ArtalkLite";
 import quicklink from "quicklink/dist/quicklink.umd";
+import { initCopyButton } from "./code.js";
 
 // import "./highlightjs-badge.min.js";
 import { getMemos, parseMemos } from "./memos.js";
@@ -57,6 +58,7 @@ function initZoom() {
 
 search();
 initZoom();
+initCopyButton();
 
 if (navigator.serviceWorker) {
     navigator.serviceWorker.register(location.origin + "/sw.js", {
