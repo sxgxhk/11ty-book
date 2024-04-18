@@ -12,11 +12,11 @@ module.exports = {
     },
     customPage: ["archives","memos","links"],
     ghost: {
-        url: "https://cms.1900.live",
-        key: "54bae25f075f027aba23d6f657",
+        url: "https://cms.057000.xyz",
+        key: "37b95fc0a44a46a3abaedd15bf",
         version: "v5.0",
     },
-    memos: {
+    备注： {
         url: "https://memos.1900.live/api/v1/memo?creatorId=101",
         limit: 10,
         offset: 10
